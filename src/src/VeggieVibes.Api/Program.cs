@@ -1,1 +1,0 @@
-builder.Services.AddAutoMapper(typeof(Program).Assembly, typeof(RecipeMappingProfile).Assembly);
