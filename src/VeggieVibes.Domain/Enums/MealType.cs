@@ -2,14 +2,14 @@ namespace VeggieVibes.Domain.Enums;
 
 public enum MealType
 {
-    Breakfast = 1,      // Café da manhã
-    Brunch = 2,         // Lanche ou refeição matinal mais tarde
-    Lunch = 3,          // Almoço
-    Snack = 4,          // Lanche entre refeições
-    Dinner = 5,         // Jantar
-    Dessert = 6,        // Sobremesa
-    Beverage = 7,       // Bebidas
-    Appetizer = 8,      // Entrada ou aperitivo
-    SideDish = 9,       // Acompanhamento
-    MainCourse = 10      // Prato principal
+    Breakfast = 1,
+    Brunch = 2,
+    Lunch = 3,
+    Snack = 4,
+    Dinner = 5,
+    Dessert = 6,
+    Beverage = 7,
+    Appetizer = 8,
+    SideDish = 9,
+    MainCourse = 10
 }

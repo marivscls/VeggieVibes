@@ -1,7 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using VeggieVibes.Application.UseCases;
 using VeggieVibes.Application.UseCases.Recipes.Register;
-using VeggieVibes.Application.AutoMapper;
 namespace VeggieVibes.Application;
 
 public static class DependencyInjectionExtension

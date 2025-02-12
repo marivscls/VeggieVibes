@@ -2,20 +2,20 @@ namespace VeggieVibes.Domain.Enums;
 
 public enum CulinaryOrigin
 {
-    Italian = 1,        // Culinária Italiana
-    French = 2,         // Culinária Francesa
-    Indian = 3,         // Culinária Indiana
-    Chinese = 4,        // Culinária Chinesa
-    Japanese = 5,       // Culinária Japonesa
-    Mexican = 6,        // Culinária Mexicana
-    Thai = 7,           // Culinária Tailandesa
-    Brazilian = 8,      // Culinária Brasileira
-    Mediterranean = 9,  // Culinária Mediterrânea
-    MiddleEastern = 10, // Culinária do Oriente Médio
-    American = 11,      // Culinária Americana
-    African = 12,       // Culinária Africana
-    Spanish = 13,       // Culinária Espanhola
-    Korean = 14,        // Culinária Coreana
-    VeganFusion = 15,   // Fusão de sabores veganos/vegetarianos
-    Other = 16          // Outras origens culinárias
+    Italian = 1,
+    French = 2,
+    Indian = 3,
+    Chinese = 4,
+    Japanese = 5,
+    Mexican = 6,
+    Thai = 7,
+    Brazilian = 8,
+    Mediterranean = 9,
+    MiddleEastern = 10,
+    American = 11,
+    African = 12,
+    Spanish = 13,
+    Korean = 14,
+    VeganFusion = 15,
+    Other = 16
 }

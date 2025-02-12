@@ -1,24 +1,32 @@
 using Microsoft.OpenApi.Models;
 using VeggieVibes.Infrastructure;
+using VeggieVibes.Application.UseCases.Recipes.GetById;
+using VeggieVibes.Application;
 using VeggieVibes.Infrastructure.DataAccess;
 using Microsoft.EntityFrameworkCore;
-using VeggieVibes.Application;
+using VeggieVibes.Domain.Repositories;
+using VeggieVibes.Infrastructure.DataAccess.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuração de Logs
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();
 
-// Adicionar serviços no container de injeção de dependência
 builder.Services.AddControllers();
-
-builder.Services.AddInfrastructure();
 
 builder.Services.AddApp();
 
-// Configuração do Swagger/OpenAPI
+builder.Services.AddInfrastructure();
+
+builder.Services.AddScoped<IGetRecipeByIdUseCase, GetRecipeByIdUseCase>();
+
+builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
+
+builder.Services.AddDbContext<VeggieVibesDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -35,12 +43,9 @@ builder.Services.AddControllers()
     options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
 });
 
-builder.Services.AddDbContext<VeggieVibesDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-// Configuração do Pipeline de Requisições
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

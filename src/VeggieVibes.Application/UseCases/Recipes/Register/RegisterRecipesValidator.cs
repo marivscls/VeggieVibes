@@ -48,9 +48,6 @@ public class RegisterRecipesValidator : AbstractValidator<RequestRegisterRecipes
             .Must(request => request.PreparationTimeMinutes + request.CookingTimeMinutes > 0)
             .WithMessage("The total time (preparation + cooking) must be greater than zero");
 
-        RuleFor(x => x.ServingsCount)
-            .GreaterThan(0).WithMessage("Servings count must be greater than zero");
-
         RuleFor(x => x.MainImageUrl)
             .NotEmpty().WithMessage("The main image URL is required")
             .Must(BeAValidUrl).WithMessage("The main image URL must be a valid URL");
