@@ -105,6 +105,12 @@ public class VeggieVibesDbContext : DbContext
             entity.Property(i => i.Name)
                 .IsRequired()
                 .HasMaxLength(100);
+
+            entity.Property(i => i.UnitOfMeasure)
+               .HasConversion(
+                   a => a.ToString(),
+                   a => (UnitOfMeasure)Enum.Parse(typeof(UnitOfMeasure), a));
+
         });
 
         modelBuilder.Entity<RecipeIngredient>(entity =>
