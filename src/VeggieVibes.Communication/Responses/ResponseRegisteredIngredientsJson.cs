@@ -2,7 +2,7 @@ using VeggieVibes.Communication.Enums;
 
 namespace VeggieVibes.Communication.Responses;
 
-public class ResponseRegisterIngredientsJson
+public class ResponseRegisteredIngredientsJson
 {
     public long IngredientId { get; set; }
     public string Name { get; set; } = string.Empty;

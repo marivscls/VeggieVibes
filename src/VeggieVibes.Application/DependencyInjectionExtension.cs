@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using VeggieVibes.Application.UseCases;
+using VeggieVibes.Application.UseCases.Recipes;
 using VeggieVibes.Application.UseCases.Recipes.Register;
 namespace VeggieVibes.Application;
 
@@ -18,6 +19,8 @@ public static class DependencyInjectionExtension
 
     private static void AddUseCases(IServiceCollection services)
     {
-        services.AddScoped<IRegisterRecipesUseCase, RegisterRecipesUseCase>();
+        services.AddScoped<IRegisteredRecipesUseCase, RegisterRecipesUseCase>();
+        services.AddScoped<IGetAllRecipesUseCase, GetAllRecipesUseCase>();
+
     }
 }

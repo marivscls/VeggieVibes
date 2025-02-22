@@ -21,7 +21,7 @@ public class GetRecipeByIdUseCase : IGetRecipeByIdUseCase
             Id = recipe.Id,
             Title = recipe.Title,
             Description = recipe.Description,
-            Ingredients = recipe.Ingredients.Select(i => new ResponseRegisterIngredientsJson
+            Ingredients = recipe.Ingredients.Select(i => new ResponseRegisteredIngredientsJson
             {
                 IngredientId = i.Ingredient.Id,
                 Name = i.Ingredient.Name,

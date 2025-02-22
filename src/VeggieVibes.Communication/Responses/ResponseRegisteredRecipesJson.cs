@@ -2,12 +2,12 @@ using VeggieVibes.Communication.Enums;
 
 namespace VeggieVibes.Communication.Responses;
 
-public class ResponseRegisterRecipesJson
+public class ResponseRegisteredRecipesJson
 {
     public long RecipeId { get; set; }
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
-    public List<ResponseRegisterIngredientsJson> Ingredients { get; set; } = new();
+    public List<ResponseRegisteredIngredientsJson> Ingredients { get; set; } = new();
     public RecipeCategory Category { get; set; }
     public RecipeDifficulty Difficulty { get; set; }
     public DietType DietType { get; set; }

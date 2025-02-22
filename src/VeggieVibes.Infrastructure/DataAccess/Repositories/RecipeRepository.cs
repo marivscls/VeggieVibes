@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using VeggieVibes.Domain.Entities;
 using VeggieVibes.Domain.Repositories;
 
@@ -15,6 +16,18 @@ public class RecipeRepository : IRecipeRepository
     {
         var recipe = await _DbContext.Recipes.FindAsync(id) ?? throw new KeyNotFoundException($"Recipe with id {id} not found.");
         return recipe;
+    }
+
+    public async Task<List<Recipe>> GetAll()
+    {
+        var recipes = await _DbContext.Recipes.AsNoTracking().ToListAsync();
+
+        if (recipes.Count == 0)
+        {
+            throw new KeyNotFoundException("No recipes found.");
+        }
+
+        return recipes;
     }
 
     public async Task Save(Recipe recipe)

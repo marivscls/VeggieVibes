@@ -4,9 +4,9 @@ using VeggieVibes.Communication.Enums;
 
 namespace VeggieVibes.Application.UseCases.Recipes.Register;
 
-public class RegisterRecipesValidator : AbstractValidator<RequestRegisterRecipesJson>
+public class RegisteredRecipesValidator : AbstractValidator<RequestRegisterRecipesJson>
 {
-    public RegisterRecipesValidator()
+    public RegisteredRecipesValidator()
     {
         RuleFor(x => x.Title)
             .NotEmpty().WithMessage("The title is required");
