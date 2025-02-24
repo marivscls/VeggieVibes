@@ -5,16 +5,16 @@ namespace VeggieVibes.Application.UseCases.Recipes.GetById;
 
 public class GetRecipeByIdUseCase : IGetRecipeByIdUseCase
 {
-    private readonly IRecipesReadOnlyRepository _recipesReadOnlyRepository;
+    private readonly IRecipeRepository _recipeRepository;
 
-    public GetRecipeByIdUseCase(IRecipesReadOnlyRepository recipesReadOnlyRepository)
+    public GetRecipeByIdUseCase(IRecipeRepository recipeRepository)
     {
-        _recipesReadOnlyRepository = recipesReadOnlyRepository;
+        _recipeRepository = recipeRepository;
     }
 
     public async Task<ResponseGetRecipeByIdJson> Execute(long id)
     {
-        var recipe = await _recipesReadOnlyRepository.GetById(id);
+        var recipe = await _recipeRepository.GetById(id);
 
         return new ResponseGetRecipeByIdJson
         {

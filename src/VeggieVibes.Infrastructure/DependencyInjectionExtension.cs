@@ -10,7 +10,6 @@ public static class DependencyInjectionExtension
     public static void AddInfrastructure(this IServiceCollection services)
     {
         services.AddScoped<IUnityOfWork, UnityOfWork>();
-        services.AddScoped<IRecipesReadOnlyRepository, RecipesRepository>();
-        services.AddScoped<IRecipesWriteOnlyRepository, RecipesRepository>();
+        services.AddScoped<IRecipesRepository, RecipesRepository>();
     }
 }
