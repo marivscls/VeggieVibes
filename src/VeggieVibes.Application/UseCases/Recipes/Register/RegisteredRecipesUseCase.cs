@@ -7,12 +7,12 @@ namespace VeggieVibes.Application.UseCases.Recipes.Register;
 
 public class RegisterRecipesUseCase : IRegisteredRecipesUseCase
 {
-    private readonly IRecipesRepository _recipesRepository;
+    private readonly IRecipesWriteOnlyRepository _recipesWriteRepository;
     private readonly IUnityOfWork _unityOfWork;
     private readonly IMapper _mapper;
-    public RegisterRecipesUseCase(IRecipesRepository repository, IUnityOfWork unityOfWork, IMapper mapper)
+    public RegisterRecipesUseCase(IRecipesWriteOnlyRepository repository, IUnityOfWork unityOfWork, IMapper mapper)
     {
-        _recipesRepository = repository;
+        _recipesWriteRepository = repository;
         _unityOfWork = unityOfWork;
         _mapper = mapper;
     }
@@ -23,7 +23,7 @@ public class RegisterRecipesUseCase : IRegisteredRecipesUseCase
 
         var entity = _mapper.Map<Recipe>(request);
 
-        await _recipesRepository.Add(entity);
+        await _recipesWriteRepository.Add(entity);
         await _unityOfWork.Commit();
 
         return _mapper.Map<ResponseRegisteredRecipesJson>(entity);
