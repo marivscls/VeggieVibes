@@ -21,7 +21,8 @@ builder.Services.AddInfrastructure();
 
 builder.Services.AddScoped<IGetRecipeByIdUseCase, GetRecipeByIdUseCase>();
 
-builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
+builder.Services.AddScoped<IRecipesReadOnlyRepository, RecipesRepository>();
+builder.Services.AddScoped<IRecipesWriteOnlyRepository, RecipesRepository>();
 
 builder.Services.AddDbContext<VeggieVibesDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

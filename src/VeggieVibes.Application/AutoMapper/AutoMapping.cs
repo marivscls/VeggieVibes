@@ -1,5 +1,4 @@
 using AutoMapper;
-using AutoMapper.Internal.Mappers;
 using VeggieVibes.Communication.Requests;
 using VeggieVibes.Communication.Responses;
 using VeggieVibes.Domain.Entities;

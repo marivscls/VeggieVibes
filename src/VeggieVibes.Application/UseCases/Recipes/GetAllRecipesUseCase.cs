@@ -6,17 +6,17 @@ namespace VeggieVibes.Application.UseCases.Recipes;
 
 public class GetAllRecipesUseCase : IGetAllRecipesUseCase
 {
-    private readonly IRecipeRepository _recipeRepository;
+    private readonly IRecipesReadOnlyRepository _recipesReadOnlyRepository;
     private readonly IMapper _mapper;
 
-    public GetAllRecipesUseCase(IRecipeRepository recipeRepository, IMapper mapper)
+    public GetAllRecipesUseCase(IRecipesReadOnlyRepository recipesReadOnlyRepository, IMapper mapper)
     {
-        _recipeRepository = recipeRepository;
+        _recipesReadOnlyRepository = recipesReadOnlyRepository;
         _mapper = mapper;
     }
     public async Task<ResponseRecipesJson> Execute()
     {
-        var recipes = await _recipeRepository.GetAll();
+        var recipes = await _recipesReadOnlyRepository.GetAll();
 
         return new ResponseRecipesJson
         {
