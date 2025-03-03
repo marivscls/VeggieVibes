@@ -30,14 +30,35 @@ public class RecipesRepository : IRecipesWriteOnlyRepository, IRecipesReadOnlyRe
         return recipes;
     }
 
+    public async Task Add(Recipe recipe)
+    {
+        await _DbContext.AddAsync(recipe);
+    }
+
     public async Task Save(Recipe recipe)
     {
         _DbContext.Set<Recipe>().Add(recipe);
         await _DbContext.SaveChangesAsync();
     }
 
-    public async Task Add(Recipe recipe)
+    public async Task<bool> Delete(long id)
     {
-        await _DbContext.AddAsync(recipe);
+        try
+        {
+            var recipe = await _DbContext.Recipes
+                .Include(r => r.Ingredients)
+                .Include(r => r.SubstituteIngredients)
+                .FirstOrDefaultAsync(r => r.Id == id);
+
+            if (recipe == null)
+                return false;
+
+            _DbContext.Remove(recipe);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 }

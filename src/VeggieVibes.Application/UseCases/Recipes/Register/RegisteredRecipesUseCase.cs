@@ -3,6 +3,9 @@ using VeggieVibes.Communication.Responses;
 using VeggieVibes.Domain.Entities;
 using VeggieVibes.Domain.Repositories;
 using AutoMapper;
+using VeggieVibes.Exception.ExceptionsBase;
+using FluentValidation;
+
 namespace VeggieVibes.Application.UseCases.Recipes.Register;
 
 public class RegisterRecipesUseCase : IRegisteredRecipesUseCase
@@ -37,7 +40,8 @@ public class RegisterRecipesUseCase : IRegisteredRecipesUseCase
 
         if (!result.IsValid)
         {
-            var errorMessage = result.Errors.Select(x => x.ErrorMessage).ToList();
+            var errorMessages = result.Errors.Select(e => e.ErrorMessage).ToList();
+            throw new ErrorOnValidationException(errorMessages);
         }
     }
 }
