@@ -16,19 +16,14 @@ public class DeleteRecipeUseCase : IDeleteRecipeUseCase
 
     public async Task<bool> Execute(long id)
     {
-        try
-        {
-            var recipeExists = await _repository.Delete(id);
 
-            if (!recipeExists)
-                return false;
+        var result = await _repository.Delete(id);
 
-            await _unityOfWork.Commit();
-            return true;
-        }
-        catch
-        {
+        if (!result)
             return false;
-        }
+
+        await _unityOfWork.Commit();
+        return true;
+
     }
 }

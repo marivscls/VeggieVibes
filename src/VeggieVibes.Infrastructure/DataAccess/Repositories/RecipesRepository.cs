@@ -43,22 +43,13 @@ public class RecipesRepository : IRecipesWriteOnlyRepository, IRecipesReadOnlyRe
 
     public async Task<bool> Delete(long id)
     {
-        try
-        {
-            var recipe = await _DbContext.Recipes
-                .Include(r => r.Ingredients)
-                .Include(r => r.SubstituteIngredients)
-                .FirstOrDefaultAsync(r => r.Id == id);
+        var result = await _DbContext.Recipes.FirstOrDefaultAsync(recipe => recipe.Id == id);
 
-            if (recipe == null)
-                return false;
-
-            _DbContext.Remove(recipe);
-            return true;
-        }
-        catch
-        {
+        if (result == null)
             return false;
-        }
+
+        _DbContext.Recipes.Remove(result);
+
+        return true;
     }
 }

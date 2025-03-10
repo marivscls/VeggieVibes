@@ -3,7 +3,6 @@ using VeggieVibes.Application.UseCases;
 using VeggieVibes.Communication.Requests;
 using VeggieVibes.Communication.Responses;
 using VeggieVibes.Application.UseCases.Recipes.GetById;
-using VeggieVibes.Exception.ExceptionsBase;
 
 namespace VeggieVibes.Api.Controllers;
 
@@ -16,24 +15,9 @@ public class RecipesController : ControllerBase
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Register([FromServices] IRegisteredRecipesUseCase useCase, [FromBody] RequestRegisterRecipesJson request)
     {
-        try
-        {
-            var response = await useCase.Execute(request);
+        var response = await useCase.Execute(request);
 
-            return Created(string.Empty, response);
-        }
-        catch (ErrorOnValidationException ex)
-        {
-            var ErrorResponse = new ResponseErrorJson(ex.Errors);
-
-            return BadRequest(ErrorResponse);
-        }
-        catch
-        {
-            var ErrorResponse = new ResponseErrorJson("Unknown error");
-
-            return StatusCode(StatusCodes.Status500InternalServerError, ErrorResponse);
-        }
+        return Created(string.Empty, response);
     }
 
     [HttpGet("{id}")]
@@ -73,5 +57,19 @@ public class RecipesController : ControllerBase
             return NotFound(new ResponseErrorJson($"Recipe with id {id} not found."));
 
         return NoContent();
+    }
+
+    [HttpPut]
+    [Route("{id}")]
+    [ProducesResponseType(typeof(ResponseRegisteredIngredientsJson), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> Update([FromRoute] long id, [FromBody] RequestUpdateRecipeJson request, [FromServices] IUpdateRecipeUseCase useCase)
+    {
+
+        var response = await useCase.Execute(id);
+
+        return Ok(response);
     }
 }

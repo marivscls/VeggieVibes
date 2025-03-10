@@ -6,12 +6,15 @@ using VeggieVibes.Infrastructure.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using VeggieVibes.Infrastructure.DataAccess.Repositories;
 using VeggieVibes.Domain.Repositories;
+using VeggieVibes.Api.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();
+
+builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
 
 builder.Services.AddControllers();
 
