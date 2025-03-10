@@ -3,6 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{42BE8B48-FDFF-4B79-A2C4-D17AC004AB47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeggieVibes.Api", "src\VeggieVibes.Api\VeggieVibes.Api.csproj", "{1E744494-E193-4199-A185-1E4F24EA6898}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeggieVibes.Application", "src\VeggieVibes.Application\VeggieVibes.Application.csproj", "{3F684F25-2E41-41FD-B844-D9CCB8008301}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeggieVibes.Communication", "src\VeggieVibes.Communication\VeggieVibes.Communication.csproj", "{7C5E7C53-8E79-49AB-A5EA-6414A59FD724}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeggieVibes.Domain", "src\VeggieVibes.Domain\VeggieVibes.Domain.csproj", "{A09CD822-2560-4B23-98D0-20053568C29D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeggieVibes.Exception", "src\VeggieVibes.Exception\VeggieVibes.Exception.csproj", "{ADA5A74E-7BB8-448E-A4C4-BA0AC5C61514}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeggieVibes.Infrastructure", "src\VeggieVibes.Infrastructure\VeggieVibes.Infrastructure.csproj", "{C6A99C0F-5E7C-47FA-B46F-7C3D34F1A334}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +24,39 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E744494-E193-4199-A185-1E4F24EA6898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E744494-E193-4199-A185-1E4F24EA6898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E744494-E193-4199-A185-1E4F24EA6898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E744494-E193-4199-A185-1E4F24EA6898}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F684F25-2E41-41FD-B844-D9CCB8008301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F684F25-2E41-41FD-B844-D9CCB8008301}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F684F25-2E41-41FD-B844-D9CCB8008301}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F684F25-2E41-41FD-B844-D9CCB8008301}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C5E7C53-8E79-49AB-A5EA-6414A59FD724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C5E7C53-8E79-49AB-A5EA-6414A59FD724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C5E7C53-8E79-49AB-A5EA-6414A59FD724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C5E7C53-8E79-49AB-A5EA-6414A59FD724}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A09CD822-2560-4B23-98D0-20053568C29D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A09CD822-2560-4B23-98D0-20053568C29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A09CD822-2560-4B23-98D0-20053568C29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A09CD822-2560-4B23-98D0-20053568C29D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA5A74E-7BB8-448E-A4C4-BA0AC5C61514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA5A74E-7BB8-448E-A4C4-BA0AC5C61514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA5A74E-7BB8-448E-A4C4-BA0AC5C61514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA5A74E-7BB8-448E-A4C4-BA0AC5C61514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6A99C0F-5E7C-47FA-B46F-7C3D34F1A334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6A99C0F-5E7C-47FA-B46F-7C3D34F1A334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6A99C0F-5E7C-47FA-B46F-7C3D34F1A334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6A99C0F-5E7C-47FA-B46F-7C3D34F1A334}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1E744494-E193-4199-A185-1E4F24EA6898} = {42BE8B48-FDFF-4B79-A2C4-D17AC004AB47}
+		{3F684F25-2E41-41FD-B844-D9CCB8008301} = {42BE8B48-FDFF-4B79-A2C4-D17AC004AB47}
+		{7C5E7C53-8E79-49AB-A5EA-6414A59FD724} = {42BE8B48-FDFF-4B79-A2C4-D17AC004AB47}
+		{A09CD822-2560-4B23-98D0-20053568C29D} = {42BE8B48-FDFF-4B79-A2C4-D17AC004AB47}
+		{ADA5A74E-7BB8-448E-A4C4-BA0AC5C61514} = {42BE8B48-FDFF-4B79-A2C4-D17AC004AB47}
+		{C6A99C0F-5E7C-47FA-B46F-7C3D34F1A334} = {42BE8B48-FDFF-4B79-A2C4-D17AC004AB47}
 	EndGlobalSection
 EndGlobal
