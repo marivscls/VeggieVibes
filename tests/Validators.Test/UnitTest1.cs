@@ -1,4 +1,4 @@
-namespace Validators.Test
+namespace Validators.Test;
 
 public class UnitTest1
 {

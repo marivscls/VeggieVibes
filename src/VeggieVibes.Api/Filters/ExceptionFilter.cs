@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using VeggieVibes.Communication.Responses;
 using VeggieVibes.Exception.ExceptionsBase;
+using VeggieVibes.Exception;
 
 namespace VeggieVibes.Api.Filters;
 
@@ -42,7 +43,7 @@ public class ExceptionFilter : IExceptionFilter
 
     private void ThrowUnkowError(ExceptionContext context)
     {
-        var errorResponse = new ResponseErrorJson();
+        var errorResponse = new ResponseErrorJson(ResourceErrorMessages.UNKNOWN_ERROR);
 
         context.HttpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
         context.Result = new ObjectResult(errorResponse);
