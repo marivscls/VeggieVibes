@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using VeggieVibes.Infrastructure.DataAccess.Repositories;
 using VeggieVibes.Domain.Repositories;
 using VeggieVibes.Api.Filters;
+using VeggieVibes.Api.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -62,6 +63,8 @@ else
     app.UseExceptionHandler("/error");
     app.UseHsts();
 }
+
+app.UseMiddleware<CultureMiddleware>();
 
 app.UseHttpsRedirection();
 app.UseRouting();
