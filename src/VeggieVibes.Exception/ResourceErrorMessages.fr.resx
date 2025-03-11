@@ -118,33 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CALORIES_POSITIVE" xml:space="preserve">
-    <value>The calories per serving must be greater than zero</value>
+    <value>Les calories par portion doivent être supérieures à zéro</value>
   </data>
   <data name="COOKING_TIME_POSITIVE" xml:space="preserve">
-    <value>The cooking time must be greater than zero</value>
+    <value>Le temps de cuisson doit être supérieur à zéro</value>
   </data>
   <data name="DESCRIPTION_MAX_LENGTH" xml:space="preserve">
-    <value>The description must have a maximum of 500 characters</value>
+    <value>La description doit comporter au maximum 500 caractères</value>
   </data>
   <data name="DESCRIPTION_REQUIRED" xml:space="preserve">
-    <value>The recipe description is required</value>
+    <value>La description de la recette est obligatoire</value>
   </data>
   <data name="INGREDIENTS_REQUIRED" xml:space="preserve">
-    <value>The recipe must have at least one ingredient</value>
+    <value>La recette doit contenir au moins un ingrédient</value>
   </data>
   <data name="INSTRUCTIONS_REQUIRED" xml:space="preserve">
-    <value>The recipe must have at least one instruction</value>
+    <value>La recette doit contenir au moins une instruction</value>
   </data>
   <data name="PREPARATION_TIME_POSITIVE" xml:space="preserve">
-    <value>The preparation time must be greater than zero</value>
+    <value>Le temps de préparation doit être supérieur à zéro</value>
   </data>
   <data name="TITLE_MAX_LENGTH" xml:space="preserve">
-    <value>The title must have a maximum of 100 characters</value>
+    <value>Le titre doit comporter au maximum 100 caractères</value>
   </data>
   <data name="TITLE_REQUIRED" xml:space="preserve">
-    <value>The recipe title is required</value>
+    <value>Le titre de la recette est obligatoire</value>
   </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
-    <value>Unknown error</value>
+    <value>Erreur inconnue</value>
   </data>
 </root>

@@ -118,31 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CALORIES_POSITIVE" xml:space="preserve">
-    <value>The calories per serving must be greater than zero</value>
+    <value>As calorias por porção devem ser maiores que zero</value>
   </data>
   <data name="COOKING_TIME_POSITIVE" xml:space="preserve">
-    <value>The cooking time must be greater than zero</value>
+    <value>O tempo de cozimento deve ser maior que zero</value>
   </data>
   <data name="DESCRIPTION_MAX_LENGTH" xml:space="preserve">
-    <value>The description must have a maximum of 500 characters</value>
+    <value>A descrição deve ter no máximo 500 caracteres</value>
   </data>
   <data name="DESCRIPTION_REQUIRED" xml:space="preserve">
-    <value>The recipe description is required</value>
+    <value>A descrição da receita é obrigatória</value>
   </data>
   <data name="INGREDIENTS_REQUIRED" xml:space="preserve">
-    <value>The recipe must have at least one ingredient</value>
+    <value>A receita deve ter pelo menos um ingrediente</value>
   </data>
   <data name="INSTRUCTIONS_REQUIRED" xml:space="preserve">
-    <value>The recipe must have at least one instruction</value>
+    <value>A receita deve ter pelo menos uma instrução</value>
   </data>
   <data name="PREPARATION_TIME_POSITIVE" xml:space="preserve">
-    <value>The preparation time must be greater than zero</value>
+    <value>O tempo de preparação deve ser maior que zero</value>
   </data>
   <data name="TITLE_MAX_LENGTH" xml:space="preserve">
-    <value>The title must have a maximum of 100 characters</value>
+    <value>O título deve ter no máximo 100 caracteres</value>
   </data>
   <data name="TITLE_REQUIRED" xml:space="preserve">
-    <value>The recipe title is required</value>
+    <value>O título da receita é obrigatório</value>
   </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Unknown error</value>
