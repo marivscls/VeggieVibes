@@ -1,24 +1,38 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace VeggieVibes.Api.Middleware
 {
     public class CultureMiddleware
     {
         private readonly RequestDelegate _next;
+
         public CultureMiddleware(RequestDelegate next)
         {
             _next = next;
         }
+
         public async Task Invoke(HttpContext context)
         {
-            var culture = context.Request.Headers.AcceptLanguage.FirstOrDefault();
+            var cultureHeader = context.Request.Headers["Accept-Language"].ToString();
+            var cultureInfo = new CultureInfo("en"); 
 
-            var cultureInfo = new CultureInfo("en");
-
-            if (string.IsNullOrWhiteSpace(culture) == false)
+            if (!string.IsNullOrWhiteSpace(cultureHeader))
             {
-                cultureInfo = new CultureInfo(culture);
+                var culture = cultureHeader.Split(',')
+                                           .Select(lang => lang.Split(';').First().Trim()) 
+                                           .FirstOrDefault();
+
+                try
+                {
+                    if (!string.IsNullOrWhiteSpace(culture))
+                    {
+                        cultureInfo = new CultureInfo(culture);
+                    }
+                }
+                catch (CultureNotFoundException)
+                {
+
+                }
             }
 
             CultureInfo.CurrentCulture = cultureInfo;
