@@ -22,7 +22,7 @@ namespace VeggieVibes.Exception {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ResourceErrorMessages {
+    public class ResourceErrorMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -51,7 +51,7 @@ namespace VeggieVibes.Exception {
         ///   pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -59,92 +59,92 @@ namespace VeggieVibes.Exception {
                 resourceCulture = value;
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The calories per serving must be greater than zero.
         /// </summary>
-        internal static string CALORIES_POSITIVE {
+        public static string CALORIES_POSITIVE {
             get {
                 return ResourceManager.GetString("CALORIES_POSITIVE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The cooking time must be greater than zero.
         /// </summary>
-        internal static string COOKING_TIME_POSITIVE {
+        public static string COOKING_TIME_POSITIVE {
             get {
                 return ResourceManager.GetString("COOKING_TIME_POSITIVE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The description must have a maximum of 500 characters.
         /// </summary>
-        internal static string DESCRIPTION_MAX_LENGTH {
+        public static string DESCRIPTION_MAX_LENGTH {
             get {
                 return ResourceManager.GetString("DESCRIPTION_MAX_LENGTH", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The recipe description is required.
         /// </summary>
-        internal static string DESCRIPTION_REQUIRED {
+        public static string DESCRIPTION_REQUIRED {
             get {
                 return ResourceManager.GetString("DESCRIPTION_REQUIRED", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The recipe must have at least one ingredient.
         /// </summary>
-        internal static string INGREDIENTS_REQUIRED {
+        public static string INGREDIENTS_REQUIRED {
             get {
                 return ResourceManager.GetString("INGREDIENTS_REQUIRED", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The recipe must have at least one instruction.
         /// </summary>
-        internal static string INSTRUCTIONS_REQUIRED {
+        public static string INSTRUCTIONS_REQUIRED {
             get {
                 return ResourceManager.GetString("INSTRUCTIONS_REQUIRED", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The preparation time must be greater than zero.
         /// </summary>
-        internal static string PREPARATION_TIME_POSITIVE {
+        public static string PREPARATION_TIME_POSITIVE {
             get {
                 return ResourceManager.GetString("PREPARATION_TIME_POSITIVE", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The title must have a maximum of 100 characters.
         /// </summary>
-        internal static string TITLE_MAX_LENGTH {
+        public static string TITLE_MAX_LENGTH {
             get {
                 return ResourceManager.GetString("TITLE_MAX_LENGTH", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The recipe title is required.
         /// </summary>
-        internal static string TITLE_REQUIRED {
+        public static string TITLE_REQUIRED {
             get {
                 return ResourceManager.GetString("TITLE_REQUIRED", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Unknown error.
         /// </summary>
-        internal static string UNKNOWN_ERROR {
+        public static string UNKNOWN_ERROR {
             get {
                 return ResourceManager.GetString("UNKNOWN_ERROR", resourceCulture);
             }
