@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\VeggieVibes.Application\VeggieVibes.Application.csproj" />
     <ProjectReference Include="..\..\src\VeggieVibes.Communication\VeggieVibes.Communication.csproj" />
+    <ProjectReference Include="..\CommonTestUtilities\CommonTestUtilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
