@@ -7,5 +7,5 @@ public class ResponseUpdateRecipeJson
 {
     public long Id { get; set; }
     public string Name { get; set; } = string.Empty;
-    public List<ResponseRegisteredIngredientsJson> Ingredients { get; set; } = [];
+    public List<ResponseRegisterIngredientsJson> Ingredients { get; set; } = [];
 }

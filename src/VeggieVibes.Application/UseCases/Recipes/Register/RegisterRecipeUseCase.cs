@@ -20,7 +20,7 @@ public class RegisterRecipesUseCase : IRegisteredRecipesUseCase
         _mapper = mapper;
     }
 
-    public async Task<ResponseRegisteredRecipesJson> Execute(RequestRegisterRecipesJson request)
+    public async Task<ResponseRegisterRecipesJson> Execute(RequestRegisterRecipesJson request)
     {
         Validate(request);
 
@@ -29,12 +29,12 @@ public class RegisterRecipesUseCase : IRegisteredRecipesUseCase
         await _recipesWriteRepository.Add(entity);
         await _unityOfWork.Commit();
 
-        return _mapper.Map<ResponseRegisteredRecipesJson>(entity);
+        return _mapper.Map<ResponseRegisterRecipesJson>(entity);
     }
 
     private void Validate(RequestRegisterRecipesJson request)
     {
-        var validator = new RegisteredRecipesValidator();
+        var validator = new RegisterRecipeValidator();
 
         var result = validator.Validate(request);
 

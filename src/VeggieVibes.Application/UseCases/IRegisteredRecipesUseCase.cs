@@ -5,5 +5,5 @@ namespace VeggieVibes.Application.UseCases;
 
 public interface IRegisteredRecipesUseCase
 {
-    Task<ResponseRegisteredRecipesJson> Execute(RequestRegisterRecipesJson request);
+    Task<ResponseRegisterRecipesJson> Execute(RequestRegisterRecipesJson request);
 }

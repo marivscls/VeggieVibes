@@ -36,7 +36,7 @@ public class AutoMapping : Profile
 
     private void EntityToResponse()
     {
-        CreateMap<Recipe, ResponseRegisteredRecipesJson>()
+        CreateMap<Recipe, ResponseRegisterRecipesJson>()
             .ForMember(dest => dest.RecipeId, opt => opt.MapFrom(src => src.Id))
             .ForMember(dest => dest.Instructions, opt => opt.MapFrom(src =>
                 src.Instructions.Select(instruction => instruction.Step)))
@@ -47,7 +47,7 @@ public class AutoMapping : Profile
             .ForMember(dest => dest.Allergen, opt => opt.MapFrom(src => src.Allergen))
             .ForMember(dest => dest.Tags, opt => opt.Ignore())
             .ForMember(dest => dest.Ingredients, opt => opt.MapFrom(src =>
-                src.Ingredients.Select(ingredient => new ResponseRegisteredIngredientsJson
+                src.Ingredients.Select(ingredient => new ResponseRegisterIngredientsJson
                 {
                     IngredientId = ingredient.Ingredient.Id,
                     Name = ingredient.Ingredient.Name,
