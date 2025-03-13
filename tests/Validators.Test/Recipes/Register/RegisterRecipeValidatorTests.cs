@@ -1,4 +1,5 @@
 ﻿using CommonTestUtilities.Requests;
+using FluentAssertions;
 using VeggieVibes.Application.UseCases.Recipes.Register;
 
 namespace Validators.Test.Recipes.Register
@@ -14,7 +15,7 @@ namespace Validators.Test.Recipes.Register
 
             var result = validator.Validate(request);
 
-            Assert.True(result.IsValid);
+            result.IsValid.Should().BeTrue();
         }
     }
 }
