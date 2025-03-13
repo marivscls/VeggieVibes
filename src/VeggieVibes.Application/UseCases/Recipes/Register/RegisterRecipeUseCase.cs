@@ -5,6 +5,7 @@ using VeggieVibes.Domain.Repositories;
 using AutoMapper;
 using VeggieVibes.Exception.ExceptionsBase;
 using FluentValidation;
+using VeggieVibes.Application.Validators;
 
 namespace VeggieVibes.Application.UseCases.Recipes.Register;
 
@@ -34,7 +35,7 @@ public class RegisterRecipesUseCase : IRegisteredRecipesUseCase
 
     private void Validate(RequestRegisterRecipesJson request)
     {
-        var validator = new RegisterRecipeValidator();
+        var validator = new RecipeErrorValidation();
 
         var result = validator.Validate(request);
 

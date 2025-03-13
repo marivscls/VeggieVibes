@@ -4,9 +4,9 @@ using VeggieVibes.Exception;
 
 namespace VeggieVibes.Application.Validators;
 
-public class RecipeValidator : AbstractValidator<RequestRegisterRecipesJson>
+public class RecipeErrorValidation : AbstractValidator<RequestRegisterRecipesJson>
 {
-    public RecipeValidator()
+    public RecipeErrorValidation()
     {
         RuleFor(x => x.Title)
             .NotEmpty()

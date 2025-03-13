@@ -1,6 +1,6 @@
 ﻿using CommonTestUtilities.Requests;
 using FluentAssertions;
-using VeggieVibes.Application.UseCases.Recipes.Register;
+using VeggieVibes.Application.Validators;
 using VeggieVibes.Exception;
 
 namespace Validators.Test.Recipes.Register
@@ -10,7 +10,7 @@ namespace Validators.Test.Recipes.Register
         [Fact]
         public void Success()
         {
-            var validator = new RegisterRecipeValidator();
+            var validator = new RecipeErrorValidation();
 
             var request = RequestRegisterRecipesJsonBuilder.Build();
 
@@ -19,24 +19,27 @@ namespace Validators.Test.Recipes.Register
             result.IsValid.Should().BeTrue();
         }
 
-        [Fact]
-        public void Error_Title_Empty()
+        [Theory]
+        [InlineData("")]
+        [InlineData("        ")]
+        [InlineData(null)]
+        public void Error_Title_Empty(string title)
         {
-            var validator = new RegisterRecipeValidator();
+            var validator = new RecipeErrorValidation();
             var resquest = RequestRegisterRecipesJsonBuilder.Build();
-            resquest.Title = string.Empty;
+            resquest.Title = title;
 
             var result = validator.Validate(resquest);
 
             result.IsValid.Should().BeFalse();
-            result.Errors.Should().ContainSingle().And.Contain(e => e.ErrorMessage.Equals(ResourceErrorMessages.TITLE_REQUIRED));        
-        
+            result.Errors.Should().ContainSingle().And.Contain(e => e.ErrorMessage.Equals(ResourceErrorMessages.TITLE_REQUIRED));
+
         }
 
         [Fact]
         public void Error_Description_Empty()
         {
-            var validator = new RegisterRecipeValidator();
+            var validator = new RecipeErrorValidation();
             var request = RequestRegisterRecipesJsonBuilder.Build();
             request.Description = string.Empty;
 
@@ -49,7 +52,7 @@ namespace Validators.Test.Recipes.Register
         [Fact]
         public void Error_Description_MaxLength()
         {
-            var validator = new RegisterRecipeValidator();
+            var validator = new RecipeErrorValidation();
             var request = RequestRegisterRecipesJsonBuilder.Build();
             request.Description = new string('A', 501);
 
@@ -62,7 +65,7 @@ namespace Validators.Test.Recipes.Register
         [Fact]
         public void Error_Calories_Negative()
         {
-            var validator = new RegisterRecipeValidator();
+            var validator = new RecipeErrorValidation();
             var request = RequestRegisterRecipesJsonBuilder.Build();
             request.CaloriesPerServing = -10;
 
@@ -75,7 +78,7 @@ namespace Validators.Test.Recipes.Register
         [Fact]
         public void Error_PreparationTime_ZeroOrNegative()
         {
-            var validator = new RegisterRecipeValidator();
+            var validator = new RecipeErrorValidation();
             var request = RequestRegisterRecipesJsonBuilder.Build();
             request.PreparationTimeMinutes = 0;
 
@@ -88,7 +91,7 @@ namespace Validators.Test.Recipes.Register
         [Fact]
         public void Error_CookingTime_ZeroOrNegative()
         {
-            var validator = new RegisterRecipeValidator();
+            var validator = new RecipeErrorValidation();
             var request = RequestRegisterRecipesJsonBuilder.Build();
             request.CookingTimeMinutes = -5;
 
@@ -101,7 +104,7 @@ namespace Validators.Test.Recipes.Register
         [Fact]
         public void Error_Ingredients_Empty()
         {
-            var validator = new RegisterRecipeValidator();
+            var validator = new RecipeErrorValidation();
             var request = RequestRegisterRecipesJsonBuilder.Build();
             request.Ingredients.Clear();
 
@@ -114,7 +117,7 @@ namespace Validators.Test.Recipes.Register
         [Fact]
         public void Error_Instructions_Empty()
         {
-            var validator = new RegisterRecipeValidator();
+            var validator = new RecipeErrorValidation();
             var request = RequestRegisterRecipesJsonBuilder.Build();
             request.Instructions.Clear();
 
@@ -127,7 +130,7 @@ namespace Validators.Test.Recipes.Register
         [Fact]
         public void Error_Title_MaxLength()
         {
-            var validator = new RegisterRecipeValidator();
+            var validator = new RecipeErrorValidation();
             var request = RequestRegisterRecipesJsonBuilder.Build();
             request.Title = new string('B', 101);
 
