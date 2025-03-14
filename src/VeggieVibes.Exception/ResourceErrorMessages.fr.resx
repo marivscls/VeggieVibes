@@ -138,6 +138,9 @@
   <data name="PREPARATION_TIME_POSITIVE" xml:space="preserve">
     <value>Le temps de préparation doit être supérieur à zéro</value>
   </data>
+  <data name="RECIPE_NOT_FOUND" xml:space="preserve">
+    <value>Recette introuvable</value>
+  </data>
   <data name="TITLE_MAX_LENGTH" xml:space="preserve">
     <value>Le titre doit comporter au maximum 100 caractères</value>
   </data>

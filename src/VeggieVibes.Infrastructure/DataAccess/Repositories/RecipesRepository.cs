@@ -12,10 +12,9 @@ public class RecipesRepository : IRecipesWriteOnlyRepository, IRecipesReadOnlyRe
         _DbContext = dbContext;
     }
 
-    public async Task<Recipe> GetById(long id)
+    public async Task<Recipe?> GetById(long id)
     {
-        var recipe = await _DbContext.Recipes.FindAsync(id) ?? throw new KeyNotFoundException($"Recipe with id {id} not found.");
-        return recipe;
+        return await _DbContext.Recipes.AsNoTracking().FirstOrDefaultAsync(r => r.Id == id) ?? throw new KeyNotFoundException($"Recipe with id {id} not found.");
     }
 
     public async Task<List<Recipe>> GetAll()

@@ -56,5 +56,6 @@ public class AutoMapping : Profile
                 })));
 
         CreateMap<Recipe, ResponseShortRecipeJson>();
+        CreateMap<Recipe, ResponseGetRecipeByIdJson>();
     }
 }
