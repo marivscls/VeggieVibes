@@ -1,20 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using VeggieVibes.Domain.Entities;
-using VeggieVibes.Domain.Repositories;
+using VeggieVibes.Domain.Repositories.Recipes;
 
 namespace VeggieVibes.Infrastructure.DataAccess.Repositories;
-public class RecipesRepository : IRecipesWriteOnlyRepository, IRecipesReadOnlyRepository
+public class RecipesRepository : IRecipesWriteOnlyRepository, IRecipesReadOnlyRepository, IRecipesUpdateOnlyRepository
 {
     private readonly VeggieVibesDbContext _DbContext;
 
     public RecipesRepository(VeggieVibesDbContext dbContext)
     {
         _DbContext = dbContext;
-    }
-
-    public async Task<Recipe?> GetById(long id)
-    {
-        return await _DbContext.Recipes.AsNoTracking().FirstOrDefaultAsync(r => r.Id == id) ?? throw new KeyNotFoundException($"Recipe with id {id} not found.");
     }
 
     public async Task<List<Recipe>> GetAll()
@@ -27,6 +22,16 @@ public class RecipesRepository : IRecipesWriteOnlyRepository, IRecipesReadOnlyRe
         }
 
         return recipes;
+    }
+
+    async Task<Recipe?> IRecipesReadOnlyRepository.GetById(long id)
+    {
+        return await _DbContext.Recipes.AsNoTracking().FirstOrDefaultAsync(r => r.Id == id);
+    }
+
+    async Task<Recipe?> IRecipesUpdateOnlyRepository.GetById(long id)
+    {
+        return await _DbContext.Recipes.FirstOrDefaultAsync(r => r.Id == id);
     }
 
     public async Task Add(Recipe recipe)
@@ -44,11 +49,16 @@ public class RecipesRepository : IRecipesWriteOnlyRepository, IRecipesReadOnlyRe
     {
         var result = await _DbContext.Recipes.FirstOrDefaultAsync(recipe => recipe.Id == id);
 
-        if (result == null)
+        if (result is null)
             return false;
 
         _DbContext.Recipes.Remove(result);
 
         return true;
+    }
+
+    public void Update(Recipe recipe)
+    {
+        _DbContext.Recipes.Update(recipe);
     }
 }

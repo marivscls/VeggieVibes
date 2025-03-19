@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
+    <ProjectReference Include="..\VeggieVibes.Application\VeggieVibes.Application.csproj" />
     <ProjectReference Include="..\VeggieVibes.Domain\VeggieVibes.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
