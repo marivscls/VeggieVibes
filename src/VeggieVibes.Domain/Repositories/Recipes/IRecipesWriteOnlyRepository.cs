@@ -1,6 +1,6 @@
 ﻿using VeggieVibes.Domain.Entities;
 
-namespace VeggieVibes.Domain.Repositories
+namespace VeggieVibes.Domain.Repositories.Recipes
 {
     public interface IRecipesWriteOnlyRepository
     {
