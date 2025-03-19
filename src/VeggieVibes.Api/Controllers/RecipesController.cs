@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
-using VeggieVibes.Application.UseCases;
 using VeggieVibes.Communication.Requests;
 using VeggieVibes.Communication.Responses;
 using VeggieVibes.Application.UseCases.Recipes.GetById;
+using VeggieVibes.Application.UseCases.Recipes.Delete;
+using VeggieVibes.Application.UseCases.Recipes.GetAll;
+using VeggieVibes.Application.UseCases.Recipes.Update;
+using VeggieVibes.Application.UseCases.Recipes.Register;
 
 namespace VeggieVibes.Api.Controllers;
 
@@ -13,7 +16,7 @@ public class RecipesController : ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(ResponseRegisterIngredientsJson), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> Register([FromServices] IRegisteredRecipesUseCase useCase, [FromBody] RequestRegisterRecipesJson request)
+    public async Task<IActionResult> Register([FromServices] IRegisteredRecipesUseCase useCase, [FromBody] RequestRecipeJson request)
     {
         var response = await useCase.Execute(request);
 
@@ -61,15 +64,13 @@ public class RecipesController : ControllerBase
 
     [HttpPut]
     [Route("{id}")]
-    [ProducesResponseType(typeof(ResponseRegisterIngredientsJson), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> Update([FromRoute] long id, [FromBody] RequestUpdateRecipeJson request, [FromServices] IUpdateRecipeUseCase useCase)
+    public async Task<IActionResult> Update([FromServices] IUpdateRecipeUseCase useCase, [FromRoute] long id, [FromBody] RequestRecipeJson request)
     {
+        await useCase.Execute(id, request);
 
-        var response = await useCase.Execute(id);
-
-        return Ok(response);
+        return NoContent();
     }
 }

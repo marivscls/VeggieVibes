@@ -5,9 +5,9 @@ using VeggieVibes.Application;
 using VeggieVibes.Infrastructure.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using VeggieVibes.Infrastructure.DataAccess.Repositories;
-using VeggieVibes.Domain.Repositories;
 using VeggieVibes.Api.Filters;
 using VeggieVibes.Api.Middleware;
+using VeggieVibes.Domain.Repositories.Recipes;
 
 var builder = WebApplication.CreateBuilder(args);
 

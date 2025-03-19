@@ -2,7 +2,7 @@ using VeggieVibes.Communication.Enums;
 
 namespace VeggieVibes.Communication.Requests;
 
-public class RequestRegisterRecipesJson
+public class RequestRecipeJson
 {
     public int RecipeId { get; set; }
     public string Title { get; set; } = string.Empty;
