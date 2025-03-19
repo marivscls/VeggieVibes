@@ -2,6 +2,7 @@
 using VeggieVibes.Communication.Requests;
 using VeggieVibes.Domain.Repositories;
 using VeggieVibes.Domain.Repositories.Recipes;
+using VeggieVibes.Exception;
 using VeggieVibes.Exception.ExceptionsBase;
 
 namespace VeggieVibes.Application.UseCases.Recipes.Update;
@@ -22,7 +23,16 @@ public class UpdateRecipeUseCase : IUpdateRecipeUseCase
     {
         Validate(request);
 
-        _repository.Update();
+        var recipe = await _repository.GetById(id);
+
+        if (recipe is null) 
+        {
+            throw new NotFoundException(ResourceErrorMessages.RECIPE_NOT_FOUND);
+        }
+
+        _mapper.Map(request, recipe);
+
+        _repository.Update(recipe);
 
         await _unityOfWork.Commit();
     }
