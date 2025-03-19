@@ -14,6 +14,6 @@ public static class DependencyInjectionExtension
         services.AddScoped<IUnityOfWork, UnityOfWork>();
         services.AddScoped<IRecipesReadOnlyRepository, RecipesRepository>();
         services.AddScoped<IRecipesWriteOnlyRepository, RecipesRepository>();
-        services.AddScoped<IUpdateRecipeUseCase, IUpdateRecipeUseCase>();
+        services.AddScoped<IRecipesUpdateOnlyRepository, RecipesRepository>();
     }
 }
