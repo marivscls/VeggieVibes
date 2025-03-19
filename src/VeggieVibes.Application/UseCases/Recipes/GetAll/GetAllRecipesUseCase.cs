@@ -1,6 +1,6 @@
 using AutoMapper;
 using VeggieVibes.Communication.Responses;
-using VeggieVibes.Domain.Repositories;
+using VeggieVibes.Domain.Repositories.Recipes;
 
 namespace VeggieVibes.Application.UseCases.Recipes.GetAll;
 

@@ -4,6 +4,7 @@ using VeggieVibes.Domain.Entities;
 using VeggieVibes.Domain.Repositories;
 using AutoMapper;
 using VeggieVibes.Exception.ExceptionsBase;
+using VeggieVibes.Domain.Repositories.Recipes;
 
 namespace VeggieVibes.Application.UseCases.Recipes.Register;
 

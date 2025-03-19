@@ -1,8 +1,8 @@
-using VeggieVibes.Domain.Repositories;
 using VeggieVibes.Communication.Responses;
 using VeggieVibes.Exception.ExceptionsBase;
 using AutoMapper;
 using VeggieVibes.Exception;
+using VeggieVibes.Domain.Repositories.Recipes;
 
 namespace VeggieVibes.Application.UseCases.Recipes.GetById;
 

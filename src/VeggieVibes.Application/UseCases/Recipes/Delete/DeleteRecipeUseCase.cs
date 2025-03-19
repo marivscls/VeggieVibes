@@ -1,4 +1,5 @@
 using VeggieVibes.Domain.Repositories;
+using VeggieVibes.Domain.Repositories.Recipes;
 using VeggieVibes.Exception;
 using VeggieVibes.Exception.ExceptionsBase;
 

@@ -14,7 +14,7 @@ public class AutoMapping : Profile
 
     private void RequestToEntity()
     {
-        CreateMap<RequestRegisterRecipesJson, Recipe>()
+        CreateMap<RequestRecipeJson, Recipe>()
             .ForMember(dest => dest.Instructions, opt => opt.MapFrom(src =>
                 src.Instructions.Select(instruction => new Instruction { Step = instruction })))
             .ForMember(dest => dest.Variations, opt => opt.MapFrom(src =>

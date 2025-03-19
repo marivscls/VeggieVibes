@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using VeggieVibes.Communication.Requests;
 using VeggieVibes.Domain.Repositories;
+using VeggieVibes.Domain.Repositories.Recipes;
 using VeggieVibes.Exception.ExceptionsBase;
 
 namespace VeggieVibes.Application.UseCases.Recipes.Update;
@@ -9,15 +10,19 @@ public class UpdateRecipeUseCase : IUpdateRecipeUseCase
 {
     private readonly IMapper _mapper;
     private readonly IUnityOfWork _unityOfWork;
+    private readonly IRecipesUpdateOnlyRepository _repository;
 
-    public UpdateRecipeUseCase(IMapper mapper, IUnityOfWork unityOfWork)
+    public UpdateRecipeUseCase(IMapper mapper, IUnityOfWork unityOfWork, IRecipesUpdateOnlyRepository repository)
     {
         _mapper = mapper;
         _unityOfWork = unityOfWork;
+        _repository = repository;
     }
     public async Task Execute(long id, RequestRecipeJson request)
     {
         Validate(request);
+
+        _repository.Update();
 
         await _unityOfWork.Commit();
     }
