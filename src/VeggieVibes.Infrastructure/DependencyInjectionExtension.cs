@@ -1,5 +1,4 @@
 using Microsoft.Extensions.DependencyInjection;
-using VeggieVibes.Application.UseCases.Recipes.Update;
 using VeggieVibes.Domain.Repositories;
 using VeggieVibes.Domain.Repositories.Recipes;
 using VeggieVibes.Infrastructure.DataAccess;

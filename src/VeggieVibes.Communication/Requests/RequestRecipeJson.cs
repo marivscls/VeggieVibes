@@ -4,7 +4,7 @@ namespace VeggieVibes.Communication.Requests;
 
 public class RequestRecipeJson
 {
-    public int RecipeId { get; set; }
+    //public int RecipeId { get; set; }
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public List<RequestRegisterIngredientsJson> Ingredients { get; set; } = [];

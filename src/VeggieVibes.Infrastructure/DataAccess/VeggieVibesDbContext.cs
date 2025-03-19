@@ -21,7 +21,8 @@ public class VeggieVibesDbContext : DbContext
     {
         modelBuilder.Entity<Recipe>(entity =>
         {
-            entity.HasKey(r => r.Id);
+            entity.Property(r => r.Id)
+                 .UseIdentityColumn();
 
             entity.Property(r => r.Title)
                 .IsRequired()
@@ -100,17 +101,17 @@ public class VeggieVibesDbContext : DbContext
 
         modelBuilder.Entity<Ingredient>(entity =>
         {
-            entity.HasKey(i => i.Id);
+            entity.Property(i => i.Id)
+                 .UseIdentityColumn();
 
             entity.Property(i => i.Name)
                 .IsRequired()
                 .HasMaxLength(100);
 
             entity.Property(i => i.UnitOfMeasure)
-               .HasConversion(
-                   a => a.ToString(),
-                   a => (UnitOfMeasure)Enum.Parse(typeof(UnitOfMeasure), a));
-
+                .HasConversion(
+                    a => a.ToString(),
+                    a => (UnitOfMeasure)Enum.Parse(typeof(UnitOfMeasure), a));
         });
 
         modelBuilder.Entity<RecipeIngredient>(entity =>
