@@ -2,7 +2,7 @@ using AutoMapper;
 using VeggieVibes.Communication.Responses;
 using VeggieVibes.Domain.Repositories;
 
-namespace VeggieVibes.Application.UseCases.Recipes;
+namespace VeggieVibes.Application.UseCases.Recipes.GetAll;
 
 public class GetAllRecipesUseCase : IGetAllRecipesUseCase
 {

@@ -4,7 +4,6 @@ using VeggieVibes.Domain.Entities;
 using VeggieVibes.Domain.Repositories;
 using AutoMapper;
 using VeggieVibes.Exception.ExceptionsBase;
-using VeggieVibes.Application.Validators;
 
 namespace VeggieVibes.Application.UseCases.Recipes.Register;
 
@@ -20,7 +19,7 @@ public class RegisterRecipesUseCase : IRegisteredRecipesUseCase
         _mapper = mapper;
     }
 
-    public async Task<ResponseRegisterRecipesJson> Execute(RequestRegisterRecipesJson request)
+    public async Task<ResponseRegisterRecipesJson> Execute(RequestRecipeJson request)
     {
         Validate(request);
 
@@ -32,9 +31,9 @@ public class RegisterRecipesUseCase : IRegisteredRecipesUseCase
         return _mapper.Map<ResponseRegisterRecipesJson>(entity);
     }
 
-    private void Validate(RequestRegisterRecipesJson request)
+    private void Validate(RequestRecipeJson request)
     {
-        var validator = new RecipeErrorValidation();
+        var validator = new RecipeValidator();
 
         var result = validator.Validate(request);
 

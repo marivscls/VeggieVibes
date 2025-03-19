@@ -1,4 +1,4 @@
-namespace VeggieVibes.Application.UseCases;
+namespace VeggieVibes.Application.UseCases.Recipes.Delete;
 
 public interface IDeleteRecipeUseCase
 {

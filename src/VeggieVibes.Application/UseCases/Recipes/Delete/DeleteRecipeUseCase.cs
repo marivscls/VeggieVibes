@@ -1,8 +1,8 @@
-using AutoMapper;
 using VeggieVibes.Domain.Repositories;
+using VeggieVibes.Exception;
 using VeggieVibes.Exception.ExceptionsBase;
 
-namespace VeggieVibes.Application.UseCases.Recipes;
+namespace VeggieVibes.Application.UseCases.Recipes.Delete;
 public class DeleteRecipeUseCase : IDeleteRecipeUseCase
 {
     private readonly IRecipesWriteOnlyRepository _repository;
@@ -16,14 +16,14 @@ public class DeleteRecipeUseCase : IDeleteRecipeUseCase
 
     public async Task<bool> Execute(long id)
     {
-
         var result = await _repository.Delete(id);
 
         if (!result)
-            return false;
+        {
+            throw new NotFoundException(ResourceErrorMessages.RECIPE_NOT_FOUND);
+        }
 
         await _unityOfWork.Commit();
         return true;
-
     }
 }
