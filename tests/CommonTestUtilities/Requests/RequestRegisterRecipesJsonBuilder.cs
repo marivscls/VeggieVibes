@@ -6,14 +6,14 @@ namespace CommonTestUtilities.Requests
 {
     public class RequestRegisterRecipesJsonBuilder
     {
-        public static RequestRegisterRecipesJson Build()
+        public static RequestRecipeJson Build()
         {
             var ingredientFaker = new Faker<RequestRegisterIngredientsJson>()
             .RuleFor(i => i.Name, f => f.Commerce.ProductName()) 
             .RuleFor(i => i.Quantity, f => f.Random.Decimal(0.1m, 5.0m)) 
             .RuleFor(i => i.UnitOfMeasure, f => f.Random.Int(1, 5)); 
 
-            var recipeFaker = new Faker<RequestRegisterRecipesJson>()
+            var recipeFaker = new Faker<RequestRecipeJson>()
                 .RuleFor(r => r.RecipeId, f => f.Random.Int(1, 1000))
                 .RuleFor(r => r.Title, f => f.Lorem.Word())
                 .RuleFor(r => r.Description, f => f.Lorem.Sentence())
