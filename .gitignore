@@ -1,4 +1,5 @@
 docker-compose.yml
+global.json
 
 # Build results
 [Bb]in/
