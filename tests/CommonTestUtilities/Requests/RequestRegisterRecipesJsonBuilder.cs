@@ -14,7 +14,6 @@ namespace CommonTestUtilities.Requests
             .RuleFor(i => i.UnitOfMeasure, f => f.Random.Int(1, 5)); 
 
             var recipeFaker = new Faker<RequestRecipeJson>()
-                .RuleFor(r => r.RecipeId, f => f.Random.Int(1, 1000))
                 .RuleFor(r => r.Title, f => f.Lorem.Word())
                 .RuleFor(r => r.Description, f => f.Lorem.Sentence())
                 .RuleFor(r => r.Ingredients, f => ingredientFaker.Generate(5)) 
