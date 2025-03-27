@@ -3,6 +3,7 @@ using VeggieVibes.Application.UseCases.Recipes.Delete;
 using VeggieVibes.Application.UseCases.Recipes.GetAll;
 using VeggieVibes.Application.UseCases.Recipes.GetById;
 using VeggieVibes.Application.UseCases.Recipes.Register;
+using VeggieVibes.Application.UseCases.Recipes.Update;
 namespace VeggieVibes.Application;
 
 public static class DependencyInjectionExtension
@@ -23,6 +24,6 @@ public static class DependencyInjectionExtension
         services.AddScoped<IRegisteredRecipesUseCase, RegisterRecipesUseCase>();
         services.AddScoped<IGetRecipeByIdUseCase, GetRecipeByIdUseCase>();
         services.AddScoped<IGetAllRecipesUseCase, GetAllRecipesUseCase>();
-        services.AddScoped<IDeleteRecipeUseCase, DeleteRecipeUseCase>();
+        services.AddScoped<IUpdateRecipeUseCase, UpdateRecipeUseCase>();
     }
 }
