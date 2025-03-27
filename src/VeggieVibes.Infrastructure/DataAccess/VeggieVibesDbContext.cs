@@ -22,7 +22,7 @@ public class VeggieVibesDbContext : DbContext
         modelBuilder.Entity<Recipe>(entity =>
         {
             entity.Property(r => r.Id)
-                 .UseIdentityColumn();
+                 .UseIdentityColumn(1, 1);
 
             entity.Property(r => r.Title)
                 .IsRequired()
@@ -102,7 +102,7 @@ public class VeggieVibesDbContext : DbContext
         modelBuilder.Entity<Ingredient>(entity =>
         {
             entity.Property(i => i.Id)
-                 .UseIdentityColumn();
+                 .UseIdentityColumn(1, 1);
 
             entity.Property(i => i.Name)
                 .IsRequired()
