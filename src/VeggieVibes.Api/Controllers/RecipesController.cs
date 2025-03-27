@@ -67,7 +67,7 @@ public class RecipesController : ControllerBase
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Update([FromServices] IUpdateRecipeUseCase useCase, [FromRoute] long id, [FromBody] RequestRecipeJson request)
+    public async Task<IActionResult> Update([FromServices] IUpdateRecipeUseCase useCase, [FromRoute] long id, [FromBody] RequestUpdateRecipeJson request)
     {
         await useCase.Execute(id, request);
 
