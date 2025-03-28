@@ -6,8 +6,8 @@ using VeggieVibes.Infrastructure.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using VeggieVibes.Infrastructure.DataAccess.Repositories;
 using VeggieVibes.Api.Filters;
-using VeggieVibes.Api.Middleware;
 using VeggieVibes.Domain.Repositories.Recipes;
+using VeggieVibes.Api.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,17 +16,18 @@ builder.Logging.AddConsole();
 builder.Logging.AddDebug();
 
 builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+    });
 
 builder.Services.AddControllers();
 
 builder.Services.AddApp();
-
 builder.Services.AddInfrastructure();
-
 builder.Services.AddScoped<IGetRecipeByIdUseCase, GetRecipeByIdUseCase>();
-
 builder.Services.AddScoped<IRecipesReadOnlyRepository, RecipesRepository>();
-
 builder.Services.AddScoped<IRecipesWriteOnlyRepository, RecipesRepository>();
 
 builder.Services.AddDbContext<VeggieVibesDbContext>(options =>
@@ -43,13 +44,6 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-builder.Services.AddControllers()
-.AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
-});
-
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -60,7 +54,6 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseExceptionHandler("/error");
     app.UseHsts();
 }
 
@@ -69,7 +62,6 @@ app.UseMiddleware<CultureMiddleware>();
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseCors("AllowAll");
-
 app.UseAuthentication();
 app.UseAuthorization();
 
