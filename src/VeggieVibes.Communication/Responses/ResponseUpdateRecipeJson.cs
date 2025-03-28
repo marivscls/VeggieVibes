@@ -23,5 +23,5 @@ public class ResponseUpdateRecipeJson
     public List<string> AdditionalImageUrls { get; set; } = [];
     public List<string> Variations { get; set; } = [];
     public List<string> SubstituteIngredients { get; set; } = [];
-    public DateTime UpdatedAt { get; set; }
+    public DateTime UpdatedAt { get; set; } 
 }
