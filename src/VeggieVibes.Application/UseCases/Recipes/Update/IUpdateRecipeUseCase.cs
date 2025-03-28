@@ -4,5 +4,5 @@ namespace VeggieVibes.Application.UseCases.Recipes.Update;
 
 public interface IUpdateRecipeUseCase
 {
-    Task Execute(long id, RequestRecipeJson request);
+    Task Execute(long id, RequestUpdateRecipeJson request);
 }

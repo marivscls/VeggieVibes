@@ -19,7 +19,7 @@ public class UpdateRecipeUseCase : IUpdateRecipeUseCase
         _unityOfWork = unityOfWork;
         _repository = repository;
     }
-    public async Task Execute(long id, RequestRecipeJson request)
+    public async Task Execute(long id, RequestUpdateRecipeJson request)
     {
         Validate(request);
 
@@ -37,9 +37,9 @@ public class UpdateRecipeUseCase : IUpdateRecipeUseCase
         await _unityOfWork.Commit();
     }
 
-    private void Validate(RequestRecipeJson request)
+    private void Validate(RequestUpdateRecipeJson request)
     {
-        var validator = new RecipeValidator();
+        var validator = new RecipeValidatorUpdate();
 
         var result = validator.Validate(request);
 
