@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using VeggieVibes.Communication.Enums;
 using VeggieVibes.Communication.Requests;
+using VeggieVibes.Communication.Responses;
 
 namespace CommonTestUtilities.Requests
 {

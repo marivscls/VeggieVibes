@@ -1,4 +1,5 @@
 using VeggieVibes.Communication.Enums;
+using VeggieVibes.Communication.Responses;
 
 namespace VeggieVibes.Communication.Requests;
 

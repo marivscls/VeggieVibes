@@ -14,7 +14,7 @@ namespace VeggieVibes.Api.Controllers;
 public class RecipesController : ControllerBase
 {
     [HttpPost]
-    [ProducesResponseType(typeof(ResponseRegisterIngredientsJson), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(RequestRecipeIngredientsJson), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Register([FromServices] IRegisteredRecipesUseCase useCase, [FromBody] RequestRecipeJson request)
     {

@@ -2,7 +2,7 @@ using VeggieVibes.Communication.Enums;
 
 namespace VeggieVibes.Communication.Responses;
 
-public class ResponseGetRecipeByIdJson
+public class ResponseRecipeJson
 {
     public long Id { get; set; }
     public string Title { get; set; } = string.Empty;
@@ -15,8 +15,8 @@ public class ResponseGetRecipeByIdJson
     public CulinaryOrigin Origin { get; set; }
     public List<string>? Instructions { get; set; }
     public int PreparationTimeMinutes { get; set; }
-    public int CookingTimeMinutes { get; set; }
     public int CaloriesPerServing { get; set; }
+    public List<string>? Tags { get; set; }
     public Allergen Allergen { get; set; }
     public string? MainImageUrl { get; set; }
     public List<string>? AdditionalImageUrls { get; set; }

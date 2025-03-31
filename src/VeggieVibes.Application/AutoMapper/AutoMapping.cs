@@ -72,7 +72,7 @@ public class AutoMapping : Profile
             .ForMember(dest => dest.Allergen, opt => opt.MapFrom(src => src.Allergen))
             .ForMember(dest => dest.Tags, opt => opt.Ignore())
             .ForMember(dest => dest.Ingredients, opt => opt.MapFrom(src =>
-                src.Ingredients.Select(ingredient => new ResponseRegisterIngredientsJson
+                src.Ingredients.Select(ingredient => new RequestRecipeIngredientsJson
                 {
                     IngredientId = ingredient.Ingredient.Id,
                     Name = ingredient.Ingredient.Name,
