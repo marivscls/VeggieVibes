@@ -8,5 +8,3 @@ docker-compose.yml
 *.user
 *.userosscache
 *.sln.docstates
-/src/VeggieVibes.Communication/Responses/ResponseRecipeJson.cs
-/src/VeggieVibes.Communication/Requests/RequestRecipeIngredientsJson.cs
