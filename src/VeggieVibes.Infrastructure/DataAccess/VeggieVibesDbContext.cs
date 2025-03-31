@@ -137,5 +137,36 @@ public class VeggieVibesDbContext : DbContext
                     v => v.ToString(),
                     v => (UnitOfMeasure)Enum.Parse(typeof(UnitOfMeasure), v));
         });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.Property(u => u.Id)
+                .UseIdentityColumn(1, 1);
+
+            entity.Property(u => u.Name)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            entity.Property(u => u.Email)
+                .IsRequired()
+                .HasMaxLength(150);
+
+            entity.HasIndex(u => u.Email)
+                .IsUnique();
+
+            entity.Property(u => u.Password)
+                .IsRequired()
+                .HasMaxLength(255);
+
+            entity.Property(u => u.UserIdentifier)
+                .IsRequired();
+
+            entity.HasIndex(u => u.UserIdentifier)
+                .IsUnique();
+
+            entity.Property(u => u.Role)
+                .IsRequired()
+                .HasMaxLength(50);
+        });
     }
 }
