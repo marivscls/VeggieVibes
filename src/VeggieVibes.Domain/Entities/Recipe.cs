@@ -24,4 +24,6 @@ public class Recipe
     public List<Variation> Variations { get; set; } = [];
     public List<RecipeIngredient> Ingredients { get; set; } = [];
     public List<SubstituteIngredient> SubstituteIngredients { get; set; } = [];
+    public long UserId { get; set; }
+    public User User { get; set; } = default!;
 }
