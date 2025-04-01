@@ -16,6 +16,7 @@ public class VeggieVibesDbContext : DbContext
     public DbSet<RecipeImage> Images { get; set; } = null!;
     public DbSet<RecipeIngredient> RecipeIngredients { get; set; } = null!;
     public DbSet<Ingredient> Ingredients { get; set; } = null!;
+    public DbSet<User> User { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -97,6 +98,11 @@ public class VeggieVibesDbContext : DbContext
                 .HasConversion(
                     v => v.ToString(),
                     v => (Allergen)Enum.Parse(typeof(Allergen), v));
+
+            entity.HasOne(r => r.User)
+                .WithMany(u => u.Recipes)
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
         modelBuilder.Entity<Ingredient>(entity =>

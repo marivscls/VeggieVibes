@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VeggieVibes.Infrastructure.DataAccess;
 
@@ -11,9 +12,11 @@ using VeggieVibes.Infrastructure.DataAccess;
 namespace VeggieVibes.Infrastructure.Migrations
 {
     [DbContext(typeof(VeggieVibesDbContext))]
-    partial class VeggieVibesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250331110249_CreateUserTable")]
+    partial class CreateUserTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
