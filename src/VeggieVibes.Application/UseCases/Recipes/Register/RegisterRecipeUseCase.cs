@@ -8,7 +8,7 @@ using VeggieVibes.Domain.Repositories.Recipes;
 
 namespace VeggieVibes.Application.UseCases.Recipes.Register;
 
-public class RegisterRecipesUseCase : IRegisteredRecipesUseCase
+public class RegisterRecipesUseCase : IRegisterRecipesUseCase
 {
     private readonly IRecipesWriteOnlyRepository _recipesWriteRepository;
     private readonly IUnityOfWork _unityOfWork;

@@ -21,7 +21,7 @@ public static class DependencyInjectionExtension
 
     private static void AddUseCases(IServiceCollection services)
     {
-        services.AddScoped<IRegisteredRecipesUseCase, RegisterRecipesUseCase>();
+        services.AddScoped<IRegisterRecipesUseCase, RegisterRecipesUseCase>();
         services.AddScoped<IGetRecipeByIdUseCase, GetRecipeByIdUseCase>();
         services.AddScoped<IGetAllRecipesUseCase, GetAllRecipesUseCase>();
         services.AddScoped<IDeleteRecipeUseCase, DeleteRecipeUseCase>();

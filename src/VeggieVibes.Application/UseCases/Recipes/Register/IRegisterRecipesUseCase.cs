@@ -3,7 +3,7 @@ using VeggieVibes.Communication.Responses;
 
 namespace VeggieVibes.Application.UseCases.Recipes.Register;
 
-public interface IRegisteredRecipesUseCase
+public interface IRegisterRecipesUseCase
 {
     Task<ResponseRecipeJson> Execute(RequestRecipeJson request);
 }
