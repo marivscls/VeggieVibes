@@ -1,4 +1,4 @@
-namespace VeggieVibes.Communication.Responses;
+namespace VeggieVibes.Communication.Responses.Recipes;
 
 public class ResponseShortRecipeJson
 {

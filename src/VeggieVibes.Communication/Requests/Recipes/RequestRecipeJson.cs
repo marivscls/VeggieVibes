@@ -1,10 +1,9 @@
-using System.Data.Common;
 using VeggieVibes.Communication.Enums;
-using VeggieVibes.Communication.Requests;
+using VeggieVibes.Communication.Responses.Recipes;
 
-namespace VeggieVibes.Communication.Responses;
+namespace VeggieVibes.Communication.Requests.Recipes;
 
-public class ResponseUpdateRecipeJson
+public class RequestRecipeJson
 {
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
@@ -23,5 +22,5 @@ public class ResponseUpdateRecipeJson
     public List<string> AdditionalImageUrls { get; set; } = [];
     public List<string> Variations { get; set; } = [];
     public List<string> SubstituteIngredients { get; set; } = [];
-    public DateTime UpdatedAt { get; set; } 
+    public long UserId { get; set; }
 }

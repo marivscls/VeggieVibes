@@ -2,12 +2,12 @@ using Microsoft.EntityFrameworkCore;
 using VeggieVibes.Domain.Entities;
 using VeggieVibes.Domain.Repositories.Recipes;
 
-namespace VeggieVibes.Infrastructure.DataAccess.Repositories;
-public class RecipesRepository : IRecipesWriteOnlyRepository, IRecipesReadOnlyRepository, IRecipesUpdateOnlyRepository
+namespace VeggieVibes.Infrastructure.DataAccess.Recipes;
+public class UsersRepository : IRecipesWriteOnlyRepository, IRecipesReadOnlyRepository, IRecipesUpdateOnlyRepository
 {
     private readonly VeggieVibesDbContext _DbContext;
 
-    public RecipesRepository(VeggieVibesDbContext dbContext)
+    public UsersRepository(VeggieVibesDbContext dbContext)
     {
         _DbContext = dbContext;
     }

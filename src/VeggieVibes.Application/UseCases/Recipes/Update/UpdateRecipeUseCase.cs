@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using VeggieVibes.Communication.Requests;
+using VeggieVibes.Communication.Requests.Recipes;
 using VeggieVibes.Domain.Repositories;
 using VeggieVibes.Domain.Repositories.Recipes;
 using VeggieVibes.Exception;
@@ -25,7 +25,7 @@ public class UpdateRecipeUseCase : IUpdateRecipeUseCase
 
         var recipe = await _repository.GetById(id);
 
-        if (recipe is null) 
+        if (recipe is null)
         {
             throw new NotFoundException(ResourceErrorMessages.RECIPE_NOT_FOUND);
         }

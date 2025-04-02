@@ -1,7 +1,7 @@
 ﻿using Bogus;
 using VeggieVibes.Communication.Enums;
-using VeggieVibes.Communication.Requests;
-using VeggieVibes.Communication.Responses;
+using VeggieVibes.Communication.Requests.Recipes;
+using VeggieVibes.Communication.Responses.Recipes;
 
 namespace CommonTestUtilities.Requests
 {
@@ -12,12 +12,12 @@ namespace CommonTestUtilities.Requests
             var ingredientFaker = new Faker<RequestRecipeIngredientsJson>()
                .RuleFor(i => i.Name, f => f.Commerce.ProductName())
                .RuleFor(i => i.Quantity, f => f.Random.Decimal(0.1m, 5.0m))
-               .RuleFor(i => i.UnitOfMeasure, f => f.PickRandom(Enum.GetValues(typeof(UnitOfMeasure)).Cast<UnitOfMeasure>())); 
+               .RuleFor(i => i.UnitOfMeasure, f => f.PickRandom(Enum.GetValues(typeof(UnitOfMeasure)).Cast<UnitOfMeasure>()));
 
             var recipeFaker = new Faker<RequestRecipeJson>()
                 .RuleFor(r => r.Title, f => f.Lorem.Word())
                 .RuleFor(r => r.Description, f => f.Lorem.Sentence())
-                .RuleFor(r => r.Ingredients, f => ingredientFaker.Generate(5)) 
+                .RuleFor(r => r.Ingredients, f => ingredientFaker.Generate(5))
                 .RuleFor(r => r.Category, f => f.PickRandom<RecipeCategory>())
                 .RuleFor(r => r.Difficulty, f => f.PickRandom<RecipeDifficulty>())
                 .RuleFor(r => r.DietType, f => f.PickRandom<DietType>())

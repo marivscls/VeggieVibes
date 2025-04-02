@@ -1,7 +1,7 @@
 ﻿using Bogus;
 using VeggieVibes.Communication.Enums;
-using VeggieVibes.Communication.Requests;
-using VeggieVibes.Communication.Responses;
+using VeggieVibes.Communication.Requests.Recipes;
+using VeggieVibes.Communication.Responses.Recipes;
 
 namespace CommonTestUtilities.Requests
 {
@@ -17,7 +17,7 @@ namespace CommonTestUtilities.Requests
             var recipeFaker = new Faker<RequestRecipeJson>()
                 .RuleFor(r => r.Title, f => f.Lorem.Word())
                 .RuleFor(r => r.Description, f => f.Lorem.Sentence())
-                .RuleFor(r => r.Ingredients, f => ingredientFaker.Generate(5)) 
+                .RuleFor(r => r.Ingredients, f => ingredientFaker.Generate(5))
                 .RuleFor(r => r.Category, f => f.PickRandom<RecipeCategory>())
                 .RuleFor(r => r.Difficulty, f => f.PickRandom<RecipeDifficulty>())
                 .RuleFor(r => r.DietType, f => f.PickRandom<DietType>())

@@ -1,5 +1,5 @@
 using FluentValidation;
-using VeggieVibes.Communication.Requests;
+using VeggieVibes.Communication.Requests.Recipes;
 using VeggieVibes.Exception;
 
 namespace VeggieVibes.Application.UseCases.Recipes;

@@ -1,5 +1,5 @@
 using FluentValidation;
-using VeggieVibes.Communication.Requests;
+using VeggieVibes.Communication.Requests.Recipes;
 using VeggieVibes.Exception;
 
 namespace VeggieVibes.Application.UseCases.Recipes;
@@ -39,5 +39,9 @@ public class RecipeValidator : AbstractValidator<RequestRecipeJson>
         RuleFor(x => x.CaloriesPerServing)
             .GreaterThan(0)
             .WithMessage(ResourceErrorMessages.CALORIES_POSITIVE);
+
+        RuleFor(x => x.UserId)
+            .GreaterThan(0)
+            .WithMessage(ResourceErrorMessages.USER_ID_REQUIRED);
     }
 }

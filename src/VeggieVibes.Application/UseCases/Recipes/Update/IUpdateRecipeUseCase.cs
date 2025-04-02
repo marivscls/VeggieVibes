@@ -1,4 +1,4 @@
-using VeggieVibes.Communication.Requests;
+using VeggieVibes.Communication.Requests.Recipes;
 
 namespace VeggieVibes.Application.UseCases.Recipes.Update;
 

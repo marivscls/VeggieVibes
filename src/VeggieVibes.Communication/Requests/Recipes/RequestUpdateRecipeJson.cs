@@ -1,7 +1,7 @@
 using VeggieVibes.Communication.Enums;
-using VeggieVibes.Communication.Responses;
+using VeggieVibes.Communication.Responses.Recipes;
 
-namespace VeggieVibes.Communication.Requests;
+namespace VeggieVibes.Communication.Requests.Recipes;
 
 public class RequestUpdateRecipeJson
 {

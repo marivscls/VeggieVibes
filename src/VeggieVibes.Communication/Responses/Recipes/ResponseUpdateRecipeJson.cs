@@ -1,13 +1,13 @@
 using VeggieVibes.Communication.Enums;
-using VeggieVibes.Communication.Responses;
+using VeggieVibes.Communication.Requests.Recipes;
 
-namespace VeggieVibes.Communication.Requests;
+namespace VeggieVibes.Communication.Responses.Recipes;
 
-public class RequestRecipeJson
+public class ResponseUpdateRecipeJson
 {
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
-    public List<RequestRecipeIngredientsJson> Ingredients { get; set; } = [];
+    public List<RequestRecipeJson> Ingredients { get; set; } = [];
     public RecipeCategory Category { get; set; }
     public RecipeDifficulty Difficulty { get; set; }
     public DietType DietType { get; set; }
@@ -21,5 +21,6 @@ public class RequestRecipeJson
     public string MainImageUrl { get; set; } = string.Empty;
     public List<string> AdditionalImageUrls { get; set; } = [];
     public List<string> Variations { get; set; } = [];
-    public List<string> SubstituteIngredients { get; set; } = []; 
+    public List<string> SubstituteIngredients { get; set; } = [];
+    public DateTime UpdatedAt { get; set; }
 }

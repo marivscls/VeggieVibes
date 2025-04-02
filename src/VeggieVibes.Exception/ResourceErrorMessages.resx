@@ -150,4 +150,7 @@
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Unknown error</value>
   </data>
+  <data name="USER_ID_REQUIRED" xml:space="preserve">
+    <value>The user ID is required</value>
+  </data>
 </root>

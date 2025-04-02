@@ -1,26 +1,26 @@
-using VeggieVibes.Communication.Requests.Recipes;
-using VeggieVibes.Communication.Responses.Recipes;
+using VeggieVibes.Communication.Requests.Users;
+using VeggieVibes.Communication.Responses.Users;
 using VeggieVibes.Domain.Entities;
 using VeggieVibes.Domain.Repositories;
 using AutoMapper;
 using VeggieVibes.Exception.ExceptionsBase;
 using VeggieVibes.Domain.Repositories.Recipes;
 
-namespace VeggieVibes.Application.UseCases.Recipes.Register;
+namespace VeggieVibes.Application.UseCases.Users.Register;
 
-public class RegisterRecipesUseCase : IRegisterRecipesUseCase
+public class RegisterUserUseCase : IRegisterUserUseCase
 {
     private readonly IRecipesWriteOnlyRepository _recipesWriteRepository;
     private readonly IUnityOfWork _unityOfWork;
     private readonly IMapper _mapper;
-    public RegisterRecipesUseCase(IRecipesWriteOnlyRepository repository, IUnityOfWork unityOfWork, IMapper mapper)
+    public RegisterUserUseCase(IRecipesWriteOnlyRepository repository, IUnityOfWork unityOfWork, IMapper mapper)
     {
         _recipesWriteRepository = repository;
         _unityOfWork = unityOfWork;
         _mapper = mapper;
     }
 
-    public async Task<ResponseRecipeJson> Execute(RequestRecipeJson request)
+    public async Task<ResponseUserJson> Execute(RequestUserJson request)
     {
         Validate(request);
 
@@ -29,10 +29,10 @@ public class RegisterRecipesUseCase : IRegisterRecipesUseCase
         await _recipesWriteRepository.Add(entity);
         await _unityOfWork.Commit();
 
-        return _mapper.Map<ResponseRecipeJson>(entity);
+        return _mapper.Map<ResponseUserJson>(entity);
     }
 
-    private void Validate(RequestRecipeJson request)
+    private void Validate(RequestUserJson request)
     {
         var validator = new RecipeValidator();
 

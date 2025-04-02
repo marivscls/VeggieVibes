@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using VeggieVibes.Communication.Requests;
 using VeggieVibes.Communication.Responses;
+using VeggieVibes.Communication.Responses.Recipes;
 using VeggieVibes.Application.UseCases.Recipes.GetById;
 using VeggieVibes.Application.UseCases.Recipes.Delete;
 using VeggieVibes.Application.UseCases.Recipes.GetAll;
@@ -16,7 +17,7 @@ public class RecipesController : ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(RequestRecipeIngredientsJson), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> Register([FromServices] IRegisteredRecipesUseCase useCase, [FromBody] RequestRecipeJson request)
+    public async Task<IActionResult> Register([FromServices] IRegisterRecipesUseCase useCase, [FromBody] RequestRecipeJson request)
     {
         var response = await useCase.Execute(request);
 
@@ -25,7 +26,7 @@ public class RecipesController : ControllerBase
 
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(ResponseGetRecipeByIdJson), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ResponseErrorJson),StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetById([FromRoute] long id, [FromServices] IGetRecipeByIdUseCase useCase)
     {
         var response = await useCase.Execute(id);

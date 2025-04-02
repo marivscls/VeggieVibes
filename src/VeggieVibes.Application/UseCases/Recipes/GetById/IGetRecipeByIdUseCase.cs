@@ -1,4 +1,4 @@
-using VeggieVibes.Communication.Responses;
+using VeggieVibes.Communication.Responses.Recipes;
 
 namespace VeggieVibes.Application.UseCases.Recipes.GetById;
 

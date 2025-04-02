@@ -1,7 +1,7 @@
 using AutoMapper;
 using VeggieVibes.Communication.Enums;
-using VeggieVibes.Communication.Requests;
-using VeggieVibes.Communication.Responses;
+using VeggieVibes.Communication.Requests.Recipes;
+using VeggieVibes.Communication.Responses.Recipes;
 using VeggieVibes.Domain.Entities;
 
 public class AutoMapping : Profile
@@ -31,7 +31,14 @@ public class AutoMapping : Profile
                     Ingredient = new Ingredient { Name = ingredient.Name },
                     Quantity = ingredient.Quantity,
                     UnitOfMeasure = (VeggieVibes.Domain.Enums.UnitOfMeasure)ingredient.UnitOfMeasure
-                })));
+                })))
+            .ForMember(dest => dest.Category, opt => opt.MapFrom(src => (VeggieVibes.Domain.Enums.RecipeCategory)src.Category))
+            .ForMember(dest => dest.Difficulty, opt => opt.MapFrom(src => (VeggieVibes.Domain.Enums.RecipeDifficulty)src.Difficulty))
+            .ForMember(dest => dest.DietType, opt => opt.MapFrom(src => (VeggieVibes.Domain.Enums.DietType)src.DietType))
+            .ForMember(dest => dest.MealType, opt => opt.MapFrom(src => (VeggieVibes.Domain.Enums.MealType)src.MealType))
+            .ForMember(dest => dest.Origin, opt => opt.MapFrom(src => (VeggieVibes.Domain.Enums.CulinaryOrigin)src.Origin))
+            .ForMember(dest => dest.Allergen, opt => opt.MapFrom(src => (VeggieVibes.Domain.Enums.Allergen)src.Allergen))
+            .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId));
 
         CreateMap<RequestUpdateRecipeJson, Recipe>()
             .ForMember(dest => dest.Instructions, opt => opt.MapFrom(src =>

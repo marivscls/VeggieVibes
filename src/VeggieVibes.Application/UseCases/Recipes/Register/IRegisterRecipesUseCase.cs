@@ -1,5 +1,5 @@
-using VeggieVibes.Communication.Requests;
-using VeggieVibes.Communication.Responses;
+using VeggieVibes.Communication.Requests.Recipes;
+using VeggieVibes.Communication.Responses.Recipes;
 
 namespace VeggieVibes.Application.UseCases.Recipes.Register;
 

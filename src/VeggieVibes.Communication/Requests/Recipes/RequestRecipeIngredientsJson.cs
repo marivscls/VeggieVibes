@@ -1,8 +1,8 @@
-using VeggieVibes.Communication.Enums;
+﻿using VeggieVibes.Communication.Enums;
 
-namespace VeggieVibes.Communication.Responses;
+namespace VeggieVibes.Communication.Responses.Recipes;
 
-public class ResponseRegisterIngredientsJson
+public class RequestRecipeIngredientsJson
 {
     public long IngredientId { get; set; }
     public string Name { get; set; } = string.Empty;

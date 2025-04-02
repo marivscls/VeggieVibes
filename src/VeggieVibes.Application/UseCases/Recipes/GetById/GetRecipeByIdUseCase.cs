@@ -1,4 +1,4 @@
-using VeggieVibes.Communication.Responses;
+using VeggieVibes.Communication.Responses.Recipes;
 using VeggieVibes.Exception.ExceptionsBase;
 using AutoMapper;
 using VeggieVibes.Exception;
