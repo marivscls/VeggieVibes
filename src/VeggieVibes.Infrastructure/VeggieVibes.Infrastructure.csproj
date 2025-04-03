@@ -1,5 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<ItemGroup>
+	  <Compile Remove="src\obj\**" />
+	  <EmbeddedResource Remove="src\obj\**" />
+	  <None Remove="src\obj\**" />
+	</ItemGroup>
+	<ItemGroup>
 		<ProjectReference Include="..\VeggieVibes.Application\VeggieVibes.Application.csproj" />
 		<ProjectReference Include="..\VeggieVibes.Domain\VeggieVibes.Domain.csproj" />
 	</ItemGroup>
@@ -22,6 +27,9 @@
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="8.0.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="8.0.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="8.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="src\" />
 	</ItemGroup>
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>

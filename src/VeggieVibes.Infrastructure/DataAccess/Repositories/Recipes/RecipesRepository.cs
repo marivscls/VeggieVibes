@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using VeggieVibes.Domain.Entities;
 using VeggieVibes.Domain.Repositories.Recipes;
+using VeggieVibes.Domain.Repositories.Users;
 
 namespace VeggieVibes.Infrastructure.DataAccess.Recipes;
 public class RecipesRepository : IRecipesWriteOnlyRepository, IRecipesReadOnlyRepository, IRecipesUpdateOnlyRepository

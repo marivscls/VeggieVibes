@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using VeggieVibes.Communication.Requests;
 using VeggieVibes.Communication.Responses;
-using VeggieVibes.Application.UseCases.Recipes.Register;
+using VeggieVibes.Communication.Requests.Users;
+using VeggieVibes.Application.UseCases.Users.Register;
 
 namespace VeggieVibes.Api.Controllers;
 
@@ -10,9 +10,9 @@ namespace VeggieVibes.Api.Controllers;
 public class UsersController : ControllerBase
 {
     [HttpPost]
-    [ProducesResponseType(typeof(RequestRecipeIngredientsJson), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(RequestUserJson), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> RegisterUser([FromServices] IRegisterUserUseCase useCase, [FromBody] RequestRecipeJson request)
+    public async Task<IActionResult> RegisterUser([FromServices] IRegisterUserUseCase useCase, [FromBody] RequestUserJson request)
     {
         var response = await useCase.Execute(request);
 

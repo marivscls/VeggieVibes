@@ -2,7 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using VeggieVibes.Domain.Repositories;
 using VeggieVibes.Domain.Repositories.Recipes;
 using VeggieVibes.Infrastructure.DataAccess;
-using VeggieVibes.Infrastructure.DataAccess.Repositories;
+using VeggieVibes.Infrastructure.DataAccess.Recipes;
 
 namespace VeggieVibes.Infrastructure;
 

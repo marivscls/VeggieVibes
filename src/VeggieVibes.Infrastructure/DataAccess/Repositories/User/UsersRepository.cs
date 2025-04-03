@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using VeggieVibes.Domain.Entities;
-using VeggieVibes.Domain.Repositories.Recipes;
+using VeggieVibes.Domain.Repositories.Users;
 
 namespace VeggieVibes.Infrastructure.DataAccess.Recipes;
-public class UsersRepository : IRecipesWriteOnlyRepository, IRecipesReadOnlyRepository, IRecipesUpdateOnlyRepository
+public class UsersRepository : IRegisterUserWriteOnlyRepository
 {
     private readonly VeggieVibesDbContext _DbContext;
 
@@ -12,53 +12,14 @@ public class UsersRepository : IRecipesWriteOnlyRepository, IRecipesReadOnlyRepo
         _DbContext = dbContext;
     }
 
-    public async Task<List<Recipe>> GetAll()
+    public async Task Add(User user)
     {
-        var recipes = await _DbContext.Recipes.AsNoTracking().ToListAsync();
-
-        if (recipes.Count == 0)
-        {
-            throw new KeyNotFoundException("No recipes found.");
-        }
-
-        return recipes;
+        await _DbContext.AddAsync(user);
     }
 
-    async Task<Recipe?> IRecipesReadOnlyRepository.GetById(long id)
+    public async Task Save(User user)
     {
-        return await _DbContext.Recipes.AsNoTracking().FirstOrDefaultAsync(r => r.Id == id);
-    }
-
-    async Task<Recipe?> IRecipesUpdateOnlyRepository.GetById(long id)
-    {
-        return await _DbContext.Recipes.FirstOrDefaultAsync(r => r.Id == id);
-    }
-
-    public async Task Add(Recipe recipe)
-    {
-        await _DbContext.AddAsync(recipe);
-    }
-
-    public async Task Save(Recipe recipe)
-    {
-        _DbContext.Set<Recipe>().Add(recipe);
+        _DbContext.Set<User>().Add(user);
         await _DbContext.SaveChangesAsync();
-    }
-
-    public async Task<bool> Delete(long id)
-    {
-        var result = await _DbContext.Recipes.FirstOrDefaultAsync(recipe => recipe.Id == id);
-
-        if (result is null)
-            return false;
-
-        _DbContext.Recipes.Remove(result);
-
-        return true;
-    }
-
-    public void Update(Recipe recipe)
-    {
-        _DbContext.Recipes.Update(recipe);
     }
 }

@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using VeggieVibes.Communication.Requests;
+using VeggieVibes.Communication.Requests.Recipes;
 using VeggieVibes.Communication.Responses;
 using VeggieVibes.Communication.Responses.Recipes;
 using VeggieVibes.Application.UseCases.Recipes.GetById;

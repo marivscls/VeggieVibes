@@ -4,44 +4,44 @@ using VeggieVibes.Domain.Entities;
 using VeggieVibes.Domain.Repositories;
 using AutoMapper;
 using VeggieVibes.Exception.ExceptionsBase;
-using VeggieVibes.Domain.Repositories.Recipes;
+using VeggieVibes.Domain.Repositories.Users;
 
 namespace VeggieVibes.Application.UseCases.Users.Register;
 
 public class RegisterUserUseCase : IRegisterUserUseCase
 {
-    private readonly IRecipesWriteOnlyRepository _recipesWriteRepository;
+    private readonly IRegisterUserWriteOnlyRepository _registerWriteRepository;
     private readonly IUnityOfWork _unityOfWork;
     private readonly IMapper _mapper;
-    public RegisterUserUseCase(IRecipesWriteOnlyRepository repository, IUnityOfWork unityOfWork, IMapper mapper)
+    public RegisterUserUseCase(IRegisterUserWriteOnlyRepository repository, IUnityOfWork unityOfWork, IMapper mapper)
     {
-        _recipesWriteRepository = repository;
+        _registerWriteRepository = repository;
         _unityOfWork = unityOfWork;
         _mapper = mapper;
     }
 
     public async Task<ResponseUserJson> Execute(RequestUserJson request)
     {
-        Validate(request);
+        //Validate(request);
 
-        var entity = _mapper.Map<Recipe>(request);
+        var entity = _mapper.Map<User>(request);
 
-        await _recipesWriteRepository.Add(entity);
+        await _registerWriteRepository.Add(entity);
         await _unityOfWork.Commit();
 
         return _mapper.Map<ResponseUserJson>(entity);
     }
 
-    private void Validate(RequestUserJson request)
-    {
-        var validator = new RecipeValidator();
+    //private void Validate(RequestUserJson request)
+    //{
+    //    //var validator = new RecipeValidator();
 
-        var result = validator.Validate(request);
+    //    //var result = validator.Validate(request);
 
-        if (!result.IsValid)
-        {
-            var errorMessages = result.Errors.Select(e => e.ErrorMessage).ToList();
-            throw new ErrorOnValidationException(errorMessages);
-        }
-    }
+    //    if (!result.IsValid)
+    //    {
+    //        var errorMessages = result.Errors.Select(e => e.ErrorMessage).ToList();
+    //        throw new ErrorOnValidationException(errorMessages);
+    //    }
+    //}
 }
