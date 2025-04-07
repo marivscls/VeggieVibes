@@ -10,9 +10,9 @@ namespace VeggieVibes.Api.Controllers;
 public class UsersController : ControllerBase
 {
     [HttpPost]
-    [ProducesResponseType(typeof(RequestUserJson), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(RequestRegisterUserJson), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> RegisterUser([FromServices] IRegisterUserUseCase useCase, [FromBody] RequestUserJson request)
+    public async Task<IActionResult> RegisterUser([FromServices] IRegisterUserUseCase useCase, [FromBody] RequestRegisterUserJson request)
     {
         var response = await useCase.Execute(request);
 

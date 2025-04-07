@@ -40,7 +40,7 @@ public class AutoMapping : Profile
             .ForMember(dest => dest.Origin, opt => opt.MapFrom(src => (VeggieVibes.Domain.Enums.CulinaryOrigin)src.Origin))
             .ForMember(dest => dest.Allergen, opt => opt.MapFrom(src => (VeggieVibes.Domain.Enums.Allergen)src.Allergen));
 
-        CreateMap<RequestUserJson, User>()
+        CreateMap<RequestRegisterUserJson, User>()
             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
             .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
             .ForMember(dest => dest.UserIdentifier, opt => opt.MapFrom(src => src.UserIdentifier))

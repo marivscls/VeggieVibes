@@ -135,6 +135,9 @@
   <data name="INSTRUCTIONS_REQUIRED" xml:space="preserve">
     <value>A receita deve ter pelo menos uma instrução</value>
   </data>
+  <data name="INVALID_PASSWORD" xml:space="preserve">
+    <value>Sua senha deve ter no minímo 8 caracteres, contendo pelo menos uma letra maiuscúla, uma letra minúscula, um número e um caractere especial (por exemplo !,?,*,.).</value>
+  </data>
   <data name="PREPARATION_TIME_POSITIVE" xml:space="preserve">
     <value>O tempo de preparação deve ser maior que zero</value>
   </data>
@@ -150,7 +153,16 @@
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Unknown error</value>
   </data>
+  <data name="USER_EMAIIL_EMPTY" xml:space="preserve">
+    <value>Email não pode estar vazio</value>
+  </data>
+  <data name="USER_EMAIIL_INVALID" xml:space="preserve">
+    <value>Email inválido</value>
+  </data>
   <data name="USER_ID_REQUIRED" xml:space="preserve">
     <value>O ID do usuário é obrigatório</value>
+  </data>
+  <data name="USER_NAME_EMPTY" xml:space="preserve">
+    <value>Nome de usuário não pode estar vazio</value>
   </data>
 </root>

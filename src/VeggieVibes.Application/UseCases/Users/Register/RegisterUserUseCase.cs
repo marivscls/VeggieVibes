@@ -20,7 +20,7 @@ public class RegisterUserUseCase : IRegisterUserUseCase
         _mapper = mapper;
     }
 
-    public async Task<ResponseUserJson> Execute(RequestUserJson request)
+    public async Task<ResponseUserJson> Execute(RequestRegisterUserJson request)
     {
         //Validate(request);
 
