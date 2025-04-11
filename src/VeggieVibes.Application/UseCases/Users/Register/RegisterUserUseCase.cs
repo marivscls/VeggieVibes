@@ -1,10 +1,11 @@
+using AutoMapper;
 using VeggieVibes.Communication.Requests.Users;
 using VeggieVibes.Communication.Responses.Users;
 using VeggieVibes.Domain.Entities;
 using VeggieVibes.Domain.Repositories;
-using AutoMapper;
-using VeggieVibes.Exception.ExceptionsBase;
 using VeggieVibes.Domain.Repositories.Users;
+using VeggieVibes.Domain.Security.Cryptography;
+using VeggieVibes.Exception.ExceptionsBase;
 
 namespace VeggieVibes.Application.UseCases.Users.Register;
 
@@ -13,35 +14,38 @@ public class RegisterUserUseCase : IRegisterUserUseCase
     private readonly IRegisterUserWriteOnlyRepository _registerWriteRepository;
     private readonly IUnityOfWork _unityOfWork;
     private readonly IMapper _mapper;
-    public RegisterUserUseCase(IRegisterUserWriteOnlyRepository repository, IUnityOfWork unityOfWork, IMapper mapper)
+    private readonly IPasswordEncripter _passwordEncripter;
+    public RegisterUserUseCase(IRegisterUserWriteOnlyRepository repository, IUnityOfWork unityOfWork, IMapper mapper, IPasswordEncripter passwordEncripter)
     {
         _registerWriteRepository = repository;
         _unityOfWork = unityOfWork;
         _mapper = mapper;
+        _passwordEncripter = passwordEncripter;
     }
 
     public async Task<ResponseUserJson> Execute(RequestRegisterUserJson request)
     {
-        //Validate(request);
+        Validate(request);
 
-        var entity = _mapper.Map<User>(request);
+        var user = _mapper.Map<User>(request);
+        user.Password = _passwordEncripter.Encrypt(request.Password);
 
-        await _registerWriteRepository.Add(entity);
-        await _unityOfWork.Commit();
-
-        return _mapper.Map<ResponseUserJson>(entity);
+        return new ResponseUserJson
+        {
+            Name = user.Name,
+        };
     }
 
-    //private void Validate(RequestUserJson request)
-    //{
-    //    //var validator = new RecipeValidator();
+    private void Validate(RequestRegisterUserJson request)
+    {
+        var validator = new RegisterUserValidator();
 
-    //    //var result = validator.Validate(request);
+        var result = validator.Validate(request);
 
-    //    if (!result.IsValid)
-    //    {
-    //        var errorMessages = result.Errors.Select(e => e.ErrorMessage).ToList();
-    //        throw new ErrorOnValidationException(errorMessages);
-    //    }
-    //}
+        if (!result.IsValid)
+        {
+            var errormessages = result.Errors.Select(e => e.ErrorMessage).ToList();
+            throw new ErrorOnValidationException(errormessages);
+        }
+    }
 }
