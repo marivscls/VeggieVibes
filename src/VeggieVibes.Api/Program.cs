@@ -26,7 +26,7 @@ builder.Services.AddControllers()
 builder.Services.AddControllers();
 
 builder.Services.AddApp();
-builder.Services.AddInfrastructure();
+builder.Services.AddRepositories();
 builder.Services.AddScoped<IGetRecipeByIdUseCase, GetRecipeByIdUseCase>();
 builder.Services.AddScoped<IRecipesReadOnlyRepository, RecipesRepository>();
 builder.Services.AddScoped<IRecipesWriteOnlyRepository, RecipesRepository>();
