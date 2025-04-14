@@ -129,6 +129,9 @@
   <data name="DESCRIPTION_REQUIRED" xml:space="preserve">
     <value>A descrição da receita é obrigatória</value>
   </data>
+  <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
+    <value>Email já resgitrado</value>
+  </data>
   <data name="INGREDIENTS_REQUIRED" xml:space="preserve">
     <value>A receita deve ter pelo menos um ingrediente</value>
   </data>

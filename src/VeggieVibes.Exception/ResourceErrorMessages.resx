@@ -129,6 +129,9 @@
   <data name="DESCRIPTION_REQUIRED" xml:space="preserve">
     <value>The recipe description is required</value>
   </data>
+  <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
+    <value>email already registered</value>
+  </data>
   <data name="INGREDIENTS_REQUIRED" xml:space="preserve">
     <value>The recipe must have at least one ingredient</value>
   </data>
@@ -155,5 +158,8 @@
   </data>
   <data name="USER_ID_REQUIRED" xml:space="preserve">
     <value>The user ID is required</value>
+  </data>
+  <data name="USER_NAME_EMPTY" xml:space="preserve">
+    <value>Username cannot be empty</value>
   </data>
 </root>

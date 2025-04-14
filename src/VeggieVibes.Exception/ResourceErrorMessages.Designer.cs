@@ -242,5 +242,16 @@ namespace VeggieVibes.Exception
                 return ResourceManager.GetString("USER_ID_REQUIRED", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a email already registered.
+        /// </summary>
+        public static string EMAIL_ALREADY_REGISTERED
+        {
+            get
+            {
+                return ResourceManager.GetString("EMAIL_ALREADY_REGISTERED", resourceCulture);
+            }
+        }
     }
 }
