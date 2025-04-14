@@ -5,19 +5,20 @@ using VeggieVibes.Domain.Entities;
 using VeggieVibes.Domain.Repositories;
 using VeggieVibes.Domain.Repositories.Users;
 using VeggieVibes.Domain.Security.Cryptography;
+using VeggieVibes.Exception;
 using VeggieVibes.Exception.ExceptionsBase;
 
 namespace VeggieVibes.Application.UseCases.Users.Register;
 
 public class RegisterUserUseCase : IRegisterUserUseCase
 {
-    private readonly IRegisterUserWriteOnlyRepository _registerWriteRepository;
+    private readonly IUserReadOnlyRepository _userReadOnlyRepository;
     private readonly IUnityOfWork _unityOfWork;
     private readonly IMapper _mapper;
     private readonly IPasswordEncripter _passwordEncripter;
-    public RegisterUserUseCase(IRegisterUserWriteOnlyRepository repository, IUnityOfWork unityOfWork, IMapper mapper, IPasswordEncripter passwordEncripter)
+    public RegisterUserUseCase(IUserReadOnlyRepository userReadOnlyRepository, IUnityOfWork unityOfWork, IMapper mapper, IPasswordEncripter passwordEncripter)
     {
-        _registerWriteRepository = repository;
+        _userReadOnlyRepository = userReadOnlyRepository;
         _unityOfWork = unityOfWork;
         _mapper = mapper;
         _passwordEncripter = passwordEncripter;
@@ -25,7 +26,7 @@ public class RegisterUserUseCase : IRegisterUserUseCase
 
     public async Task<ResponseUserJson> Execute(RequestRegisterUserJson request)
     {
-        Validate(request);
+        await Validate(request);
 
         var user = _mapper.Map<User>(request);
         user.Password = _passwordEncripter.Encrypt(request.Password);
@@ -36,11 +37,14 @@ public class RegisterUserUseCase : IRegisterUserUseCase
         };
     }
 
-    private void Validate(RequestRegisterUserJson request)
+    private async Task Validate(RequestRegisterUserJson request)
     {
-        var validator = new RegisterUserValidator();
+        var result = new RegisterUserValidator().Validate(request);
 
-        var result = validator.Validate(request);
+        var emailExist = await _userReadOnlyRepository.ExistActiveUserWithEmail(request.Email);
+
+        if(emailExist)
+            result.Errors.Add(new FluentValidation.Results.ValidationFailure(string.Empty, ResourceErrorMessages.EMAIL_ALREADY_REGISTERED));
 
         if (!result.IsValid)
         {
