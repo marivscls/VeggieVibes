@@ -5,10 +5,7 @@ using VeggieVibes.Application;
 using VeggieVibes.Infrastructure.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using VeggieVibes.Api.Filters;
-using VeggieVibes.Domain.Repositories.Recipes;
 using VeggieVibes.Api.Middleware;
-using VeggieVibes.Infrastructure.DataAccess.Recipes;
-using VeggieVibes.Domain.Repositories.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,9 +25,6 @@ builder.Services.AddControllers();
 builder.Services.AddApp();
 builder.Services.AddRepositories();
 builder.Services.AddScoped<IGetRecipeByIdUseCase, GetRecipeByIdUseCase>();
-builder.Services.AddScoped<IRecipesReadOnlyRepository, RecipesRepository>();
-builder.Services.AddScoped<IRecipesWriteOnlyRepository, RecipesRepository>();
-builder.Services.AddScoped<IUserReadOnlyRepository, UserRepository>();
 
 builder.Services.AddDbContext<VeggieVibesDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
