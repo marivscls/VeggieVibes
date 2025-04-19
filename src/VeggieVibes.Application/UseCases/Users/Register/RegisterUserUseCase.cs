@@ -1,4 +1,5 @@
 using AutoMapper;
+using FluentValidation.Results;
 using VeggieVibes.Communication.Requests.Users;
 using VeggieVibes.Communication.Responses.Users;
 using VeggieVibes.Domain.Entities;
@@ -13,12 +14,14 @@ namespace VeggieVibes.Application.UseCases.Users.Register;
 public class RegisterUserUseCase : IRegisterUserUseCase
 {
     private readonly IUserReadOnlyRepository _userReadOnlyRepository;
+    private readonly IUserWriteOnlyRepository _userWriteOnlyRepository;
     private readonly IUnityOfWork _unityOfWork;
     private readonly IMapper _mapper;
     private readonly IPasswordEncripter _passwordEncripter;
-    public RegisterUserUseCase(IUserReadOnlyRepository userReadOnlyRepository, IUnityOfWork unityOfWork, IMapper mapper, IPasswordEncripter passwordEncripter)
+    public RegisterUserUseCase(IUserReadOnlyRepository userReadOnlyRepository, IUserWriteOnlyRepository userWriteOnlyRepository, IUnityOfWork unityOfWork, IMapper mapper, IPasswordEncripter passwordEncripter)
     {
         _userReadOnlyRepository = userReadOnlyRepository;
+        _userWriteOnlyRepository = userWriteOnlyRepository;
         _unityOfWork = unityOfWork;
         _mapper = mapper;
         _passwordEncripter = passwordEncripter;
@@ -30,6 +33,11 @@ public class RegisterUserUseCase : IRegisterUserUseCase
 
         var user = _mapper.Map<User>(request);
         user.Password = _passwordEncripter.Encrypt(request.Password);
+        user.UserIdentifier = Guid.NewGuid();
+
+        await _userWriteOnlyRepository.Add(user);  
+
+        await _unityOfWork.Commit();
 
         return new ResponseUserJson
         {
@@ -44,7 +52,7 @@ public class RegisterUserUseCase : IRegisterUserUseCase
         var emailExist = await _userReadOnlyRepository.ExistActiveUserWithEmail(request.Email);
 
         if(emailExist)
-            result.Errors.Add(new FluentValidation.Results.ValidationFailure(string.Empty, ResourceErrorMessages.EMAIL_ALREADY_REGISTERED));
+            result.Errors.Add(new ValidationFailure(string.Empty, ResourceErrorMessages.EMAIL_ALREADY_REGISTERED));
 
         if (!result.IsValid)
         {

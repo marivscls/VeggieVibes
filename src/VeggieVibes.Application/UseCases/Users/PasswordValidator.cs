@@ -28,25 +28,25 @@ namespace VeggieVibes.Application.UseCases.Users
                 return false;
             }
 
-            if(Regex.IsMatch(password, @"[A-Z]+"))
+            if(!Regex.IsMatch(password, @"[A-Z]+"))
             {
                 context.MessageFormatter.AppendArgument(ERROR_MESSAGE_KEY, ResourceErrorMessages.INVALID_PASSWORD);
                 return false;
             }
 
-            if (Regex.IsMatch(password, @"[a-z]+"))
+            if (!Regex.IsMatch(password, @"[a-z]+"))
             {
                 context.MessageFormatter.AppendArgument(ERROR_MESSAGE_KEY, ResourceErrorMessages.INVALID_PASSWORD);
                 return false;
             }
 
-            if (Regex.IsMatch(password, @"[0-9]+"))
+            if (!Regex.IsMatch(password, @"[0-9]+"))
             {
                 context.MessageFormatter.AppendArgument(ERROR_MESSAGE_KEY, ResourceErrorMessages.INVALID_PASSWORD);
                 return false;
             }
 
-            if (Regex.IsMatch(password, @"[\!\?\*\.]+"))
+            if (!Regex.IsMatch(password, @"[\!\?\*\.]+"))
             {
                 context.MessageFormatter.AppendArgument(ERROR_MESSAGE_KEY, ResourceErrorMessages.INVALID_PASSWORD);
                 return false;
