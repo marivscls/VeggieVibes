@@ -129,7 +129,7 @@
   <data name="DESCRIPTION_REQUIRED" xml:space="preserve">
     <value>La description de la recette est obligatoire</value>
   </data>
-  <data name="EMAIIL_ALREADY_REGISTERED" xml:space="preserve">
+  <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
     <value>email déjà enregistré</value>
   </data>
   <data name="INGREDIENTS_REQUIRED" xml:space="preserve">
@@ -156,13 +156,16 @@
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Erreur inconnue</value>
   </data>
+  <data name="USER_ID_REQUIRED" xml:space="preserve">
+    <value>L'identifiant utilisateur est requis</value>
+  </data>
+  <data name="USER_NAME_EMPTY" xml:space="preserve">
+    <value>Le nom d'utilisateur ne peut pas être vide</value>
+  </data>
   <data name="USER_EMAIIL_EMPTY" xml:space="preserve">
     <value>L'email ne peut pas être vide</value>
   </data>
   <data name="USER_EMAIIL_INVALID" xml:space="preserve">
     <value>Email invalide</value>
-  </data>
-  <data name="USER_NAME_EMPTY" xml:space="preserve">
-    <value>Le nom d'utilisateur ne peut pas être vide</value>
   </data>
 </root>

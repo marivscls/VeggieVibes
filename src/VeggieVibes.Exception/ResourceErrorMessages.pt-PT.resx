@@ -156,13 +156,16 @@
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Erro desconhecido</value>
   </data>
+  <data name="USER_ID_REQUIRED" xml:space="preserve">
+    <value>O ID do utilizador é necessário</value>
+  </data>
+  <data name="USER_NAME_EMPTY" xml:space="preserve">
+    <value>Nome de utilizador não pode estar vazio</value>
+  </data>
   <data name="USER_EMAIIL_EMPTY" xml:space="preserve">
     <value>Email não pode estar vazio</value>
   </data>
   <data name="USER_EMAIIL_INVALID" xml:space="preserve">
     <value>Email inválido</value>
-  </data>
-  <data name="USER_NAME_EMPTY" xml:space="preserve">
-    <value>Nome de utilizador não pode estar vazio</value>
   </data>
 </root>

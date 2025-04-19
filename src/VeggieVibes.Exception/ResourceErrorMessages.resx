@@ -162,4 +162,10 @@
   <data name="USER_NAME_EMPTY" xml:space="preserve">
     <value>Username cannot be empty</value>
   </data>
+  <data name="USER_EMAIIL_EMPTY" xml:space="preserve">
+    <value>Email cannot be empty</value>
+  </data>
+  <data name="USER_EMAIIL_INVALID" xml:space="preserve">
+    <value>invalid email</value>
+  </data>
 </root>

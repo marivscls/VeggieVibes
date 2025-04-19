@@ -8,8 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VeggieVibes.Exception
-{
+namespace VeggieVibes.Exception {
     using System;
     
     
@@ -114,6 +113,15 @@ namespace VeggieVibes.Exception
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a email already registered.
+        /// </summary>
+        public static string EMAIL_ALREADY_REGISTERED {
+            get {
+                return ResourceManager.GetString("EMAIL_ALREADY_REGISTERED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The recipe must have at least one ingredient.
         /// </summary>
         public static string INGREDIENTS_REQUIRED
@@ -143,47 +151,12 @@ namespace VeggieVibes.Exception
                 return ResourceManager.GetString("INVALID_PASSWORD", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a user name empty
-        /// </summary>
-        public static string USER_NAME_EMPTY
-        {
-            get
-            {
-                return ResourceManager.GetString("INVALID_PASSWORD", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a user email empty
-        /// </summary>
-        public static string USER_EMAIIL_EMPTY
-        {
-            get
-            {
-                return ResourceManager.GetString("INVALID_PASSWORD", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a user email invalid
-        /// </summary>
-        public static string USER_EMAIIL_INVALID
-        {
-            get
-            {
-                return ResourceManager.GetString("INVALID_PASSWORD", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The preparation time must be greater than zero.
         /// </summary>
-        public static string PREPARATION_TIME_POSITIVE
-        {
-            get
-            {
+        public static string PREPARATION_TIME_POSITIVE {
+            get {
                 return ResourceManager.GetString("PREPARATION_TIME_POSITIVE", resourceCulture);
             }
         }
@@ -191,10 +164,8 @@ namespace VeggieVibes.Exception
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Recipe not found.
         /// </summary>
-        public static string RECIPE_NOT_FOUND
-        {
-            get
-            {
+        public static string RECIPE_NOT_FOUND {
+            get {
                 return ResourceManager.GetString("RECIPE_NOT_FOUND", resourceCulture);
             }
         }
@@ -202,10 +173,8 @@ namespace VeggieVibes.Exception
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The title must have a maximum of 100 characters.
         /// </summary>
-        public static string TITLE_MAX_LENGTH
-        {
-            get
-            {
+        public static string TITLE_MAX_LENGTH {
+            get {
                 return ResourceManager.GetString("TITLE_MAX_LENGTH", resourceCulture);
             }
         }
@@ -213,10 +182,8 @@ namespace VeggieVibes.Exception
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The recipe title is required.
         /// </summary>
-        public static string TITLE_REQUIRED
-        {
-            get
-            {
+        public static string TITLE_REQUIRED {
+            get {
                 return ResourceManager.GetString("TITLE_REQUIRED", resourceCulture);
             }
         }
@@ -224,33 +191,45 @@ namespace VeggieVibes.Exception
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Unknown error.
         /// </summary>
-        public static string UNKNOWN_ERROR
-        {
-            get
-            {
+        public static string UNKNOWN_ERROR {
+            get {
                 return ResourceManager.GetString("UNKNOWN_ERROR", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a user id required.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Email cannot be empty.
         /// </summary>
-        public static string USER_ID_REQUIRED
-        {
-            get
-            {
+        public static string USER_EMAIIL_EMPTY {
+            get {
+                return ResourceManager.GetString("USER_EMAIIL_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a invalid email.
+        /// </summary>
+        public static string USER_EMAIIL_INVALID {
+            get {
+                return ResourceManager.GetString("USER_EMAIIL_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The user ID is required.
+        /// </summary>
+        public static string USER_ID_REQUIRED {
+            get {
                 return ResourceManager.GetString("USER_ID_REQUIRED", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a email already registered.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Username cannot be empty.
         /// </summary>
-        public static string EMAIL_ALREADY_REGISTERED
-        {
-            get
-            {
-                return ResourceManager.GetString("EMAIL_ALREADY_REGISTERED", resourceCulture);
+        public static string USER_NAME_EMPTY {
+            get {
+                return ResourceManager.GetString("USER_NAME_EMPTY", resourceCulture);
             }
         }
     }
