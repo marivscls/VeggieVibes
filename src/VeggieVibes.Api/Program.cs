@@ -23,7 +23,7 @@ builder.Services.AddControllers()
 builder.Services.AddControllers();
 
 builder.Services.AddApp();
-builder.Services.AddRepositories();
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<IGetRecipeByIdUseCase, GetRecipeByIdUseCase>();
 
 builder.Services.AddDbContext<VeggieVibesDbContext>(options =>
