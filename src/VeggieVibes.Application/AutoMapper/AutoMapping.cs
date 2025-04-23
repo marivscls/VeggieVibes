@@ -37,7 +37,7 @@ public class AutoMapping : Profile
             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
             .ForMember(dest => dest.Instructions, opt => opt.MapFrom(src => src.Instructions.Select(instruction => instruction.Step))).ForMember(dest => dest.Variations, opt => opt.MapFrom(src => src.Variations.Select(variation => variation.Description))).ForMember(dest => dest.SubstituteIngredients, opt => opt.MapFrom(src => src.SubstituteIngredients.Select(substitute => substitute.Substitute))).ForMember(dest => dest.Allergen, opt => opt.MapFrom(src => src.Allergen)).ForMember(dest => dest.Tags, opt => opt.Ignore()).ForMember(dest => dest.Ingredients, opt => opt.MapFrom(src =>src.Ingredients.Select(ingredient => new RequestRecipeIngredientsJson{IngredientId = ingredient.Ingredient.Id,Name = ingredient.Ingredient.Name, Quantity = ingredient.Quantity, UnitOfMeasure = (VeggieVibes.Communication.Enums.UnitOfMeasure)ingredient.UnitOfMeasure})));
             
-        CreateMap<User, ResponseUserJson>();
+        CreateMap<User, ResponseRegisteredUserJson>();
 
         CreateMap<Recipe, ResponseUpdateRecipeJson>();
 
