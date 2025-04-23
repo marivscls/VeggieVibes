@@ -27,7 +27,7 @@ public class AutoMapping : Profile
             .ForMember(dest => dest.SubstituteIngredients, opt => opt.MapFrom(src => src.SubstituteIngredients.Select(substitute => new SubstituteIngredient { OriginalIngredient = substitute, Substitute = substitute }).ToList()))
             .ForMember(dest => dest.Ingredients, opt => opt.MapFrom(src => src.Ingredients.Select(ingredient => new RecipeIngredient { Ingredient = new Ingredient { Name = ingredient.Name }, Quantity = ingredient.Quantity, UnitOfMeasure = (VeggieVibes.Domain.Enums.UnitOfMeasure)ingredient.UnitOfMeasure }).ToList()));
 
-        CreateMap<RequestRegisterUserJson, User>()
+        CreateMap<RequestRegisteredUserJson, User>()
             .ForMember(dest => dest.Password, config => config.Ignore());
     }
 
