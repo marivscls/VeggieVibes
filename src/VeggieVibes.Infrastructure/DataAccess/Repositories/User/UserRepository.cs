@@ -18,4 +18,9 @@ public class UserRepository : IUserWriteOnlyRepository, IUserReadOnlyRepository
     {
         return await _dbContext.User.AnyAsync(x => x.Email.Equals(email));
     }
+
+    public Task<User?> GetUserByEmail(string email)
+    {
+        throw new NotImplementedException();
+    }
 }
