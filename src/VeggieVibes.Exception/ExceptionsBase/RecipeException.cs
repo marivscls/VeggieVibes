@@ -6,4 +6,8 @@ public abstract class RecipeException : SystemException
     {
         
     }
+    public virtual List<string> GetErrors()
+    {
+        return new List<string> { Message };
+    }
 }

@@ -168,4 +168,7 @@
   <data name="USER_EMAIIL_INVALID" xml:space="preserve">
     <value>Email invalide</value>
   </data>
+  <data name="EMAIL_OR_PASSWORD_INVALID" xml:space="preserve">
+    <value>Email or mot de passe invalide</value>
+  </data>
 </root>

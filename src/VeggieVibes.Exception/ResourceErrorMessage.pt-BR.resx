@@ -132,6 +132,9 @@
   <data name="EMAIIL_ALREADY_REGISTERED" xml:space="preserve">
     <value>Email já registrado</value>
   </data>
+  <data name="EMAIL_OR_PASSWORD_INVALID" xml:space="preserve">
+    <value />
+  </data>
   <data name="INGREDIENTS_REQUIRED" xml:space="preserve">
     <value>A receita deve ter pelo menos um ingrediente</value>
   </data>

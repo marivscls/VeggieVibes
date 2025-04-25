@@ -120,10 +120,21 @@ namespace VeggieVibes.Exception {
                 return ResourceManager.GetString("EMAIL_ALREADY_REGISTERED", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The recipe must have at least one ingredient.
         /// </summary>
+
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Email or password invalid.
+        /// </summary>
+        public static string EMAIL_OR_PASSWORD_INVALID
+        {
+            get
+            {
+                return ResourceManager.GetString("EMAIL_OR_PASSWORD_INVALID", resourceCulture);
+            }
+        }
+
         public static string INGREDIENTS_REQUIRED
         {
             get
