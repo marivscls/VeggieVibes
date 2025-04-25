@@ -6,6 +6,7 @@ using VeggieVibes.Domain.Entities;
 using VeggieVibes.Domain.Repositories;
 using VeggieVibes.Domain.Repositories.Users;
 using VeggieVibes.Domain.Security.Cryptography;
+using VeggieVibes.Domain.Security.Tokens;
 using VeggieVibes.Exception;
 using VeggieVibes.Exception.ExceptionsBase;
 
@@ -18,13 +19,20 @@ public class RegisterUserUseCase : IRegisterUserUseCase
     private readonly IUnityOfWork _unityOfWork;
     private readonly IMapper _mapper;
     private readonly IPasswordEncripter _passwordEncripter;
-    public RegisterUserUseCase(IUserReadOnlyRepository userReadOnlyRepository, IUserWriteOnlyRepository userWriteOnlyRepository, IUnityOfWork unityOfWork, IMapper mapper, IPasswordEncripter passwordEncripter)
+    private readonly IAccessTokenGenerator _tokenGenerator;
+    public RegisterUserUseCase(
+        IUserReadOnlyRepository userReadOnlyRepository, 
+        IUserWriteOnlyRepository userWriteOnlyRepository, 
+        IUnityOfWork unityOfWork, IMapper mapper, 
+        IPasswordEncripter passwordEncripter, 
+        IAccessTokenGenerator tokenGenerator)
     {
         _userReadOnlyRepository = userReadOnlyRepository;
         _userWriteOnlyRepository = userWriteOnlyRepository;
         _unityOfWork = unityOfWork;
         _mapper = mapper;
         _passwordEncripter = passwordEncripter;
+        _tokenGenerator = tokenGenerator;
     }
 
     public async Task<ResponseRegisteredUserJson> Execute(RequestRegisteredUserJson request)
@@ -42,6 +50,7 @@ public class RegisterUserUseCase : IRegisterUserUseCase
         return new ResponseRegisteredUserJson
         {
             Name = user.Name,
+            Token = _tokenGenerator.Generate(user)
         };
     }
 
