@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using VeggieVibes.Application.UseCases.Login;
 using VeggieVibes.Application.UseCases.Recipes.Delete;
 using VeggieVibes.Application.UseCases.Recipes.GetAll;
 using VeggieVibes.Application.UseCases.Recipes.GetById;
@@ -28,5 +29,6 @@ public static class DependencyInjectionExtension
         services.AddScoped<IDeleteRecipeUseCase, DeleteRecipeUseCase>();
         services.AddScoped<IUpdateRecipeUseCase, UpdateRecipeUseCase>();
         services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
+        services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
     }
 }
