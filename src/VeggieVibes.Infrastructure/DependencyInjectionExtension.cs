@@ -1,6 +1,5 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using VeggieVibes.Application.UseCases.Recipes.GetById;
 using VeggieVibes.Domain.Repositories;
 using VeggieVibes.Domain.Repositories.Recipes;
 using VeggieVibes.Domain.Repositories.Users;

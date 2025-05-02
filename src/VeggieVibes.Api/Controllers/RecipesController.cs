@@ -7,11 +7,14 @@ using VeggieVibes.Application.UseCases.Recipes.Delete;
 using VeggieVibes.Application.UseCases.Recipes.GetAll;
 using VeggieVibes.Application.UseCases.Recipes.Update;
 using VeggieVibes.Application.UseCases.Recipes.Register;
+using Microsoft.AspNetCore.Authorization;
 
 namespace VeggieVibes.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
+
 public class RecipesController : ControllerBase
 {
     [HttpPost]
