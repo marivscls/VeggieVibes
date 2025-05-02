@@ -6,6 +6,11 @@ using VeggieVibes.Infrastructure.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using VeggieVibes.Api.Filters;
 using VeggieVibes.Api.Middleware;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,9 +31,25 @@ builder.Services.AddApp();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<IGetRecipeByIdUseCase, GetRecipeByIdUseCase>();
 
+var signingKey = builder.Configuration.GetValue<string>("Settings:Jwt:SigningKey");
+
 builder.Services.AddDbContext<VeggieVibesDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddAuthentication(config =>
+{
+    config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(config =>
+{
+    config.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ClockSkew = TimeSpan.Zero,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(signingKey!))
+    };
+});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -56,8 +77,11 @@ else
 app.UseMiddleware<CultureMiddleware>();
 
 app.UseHttpsRedirection();
+
 app.UseRouting();
+
 app.UseCors("AllowAll");
+
 app.UseAuthentication();
 app.UseAuthorization();
 
