@@ -11,7 +11,7 @@ namespace Validators.Test.Recipes.Register
         public void Success()
         {
             var validator = new RecipeValidator();
-            var request = RequestRecipesJsonBuilder.Build();
+            var request = RequestRegisterRecipesJsonBuilder.Build();
             var result = validator.Validate(request);
             result.IsValid.Should().BeTrue();
         }
@@ -23,7 +23,7 @@ namespace Validators.Test.Recipes.Register
         public void Error_Title_Empty(string title)
         {
             var validator = new RecipeValidator();
-            var request = RequestRecipesJsonBuilder.Build();
+            var request = RequestRegisterRecipesJsonBuilder.Build();
             request.Title = title;
 
             var result = validator.Validate(request);
@@ -37,7 +37,7 @@ namespace Validators.Test.Recipes.Register
         public void Error_Description_Empty()
         {
             var validator = new RecipeValidator();
-            var request = RequestRecipesJsonBuilder.Build();
+            var request = RequestRegisterRecipesJsonBuilder.Build();
             request.Description = string.Empty;
 
             var result = validator.Validate(request);
@@ -51,7 +51,7 @@ namespace Validators.Test.Recipes.Register
         public void Error_Description_MaxLength()
         {
             var validator = new RecipeValidator();
-            var request = RequestRecipesJsonBuilder.Build();
+            var request = RequestRegisterRecipesJsonBuilder.Build();
             request.Description = new string('A', 501);
 
             var result = validator.Validate(request);
@@ -65,7 +65,7 @@ namespace Validators.Test.Recipes.Register
         public void Error_Calories_Negative()
         {
             var validator = new RecipeValidator();
-            var request = RequestRecipesJsonBuilder.Build();
+            var request = RequestRegisterRecipesJsonBuilder.Build();
             request.CaloriesPerServing = -10;
 
             var result = validator.Validate(request);
@@ -79,7 +79,7 @@ namespace Validators.Test.Recipes.Register
         public void Error_PreparationTime_ZeroOrNegative()
         {
             var validator = new RecipeValidator();
-            var request = RequestRecipesJsonBuilder.Build();
+            var request = RequestRegisterRecipesJsonBuilder.Build();
             request.PreparationTimeMinutes = 0;
 
             var result = validator.Validate(request);
@@ -93,7 +93,7 @@ namespace Validators.Test.Recipes.Register
         public void Error_CookingTime_ZeroOrNegative()
         {
             var validator = new RecipeValidator();
-            var request = RequestRecipesJsonBuilder.Build();
+            var request = RequestRegisterRecipesJsonBuilder.Build();
             request.CookingTimeMinutes = -5;
 
             var result = validator.Validate(request);
@@ -107,7 +107,7 @@ namespace Validators.Test.Recipes.Register
         public void Error_Ingredients_Empty()
         {
             var validator = new RecipeValidator();
-            var request = RequestRecipesJsonBuilder.Build();
+            var request = RequestRegisterRecipesJsonBuilder.Build();
             request.Ingredients.Clear();
 
             var result = validator.Validate(request);
@@ -121,7 +121,7 @@ namespace Validators.Test.Recipes.Register
         public void Error_Instructions_Empty()
         {
             var validator = new RecipeValidator();
-            var request = RequestRecipesJsonBuilder.Build();
+            var request = RequestRegisterRecipesJsonBuilder.Build();
             request.Instructions.Clear();
 
             var result = validator.Validate(request);
@@ -135,7 +135,7 @@ namespace Validators.Test.Recipes.Register
         public void Error_Title_MaxLength()
         {
             var validator = new RecipeValidator();
-            var request = RequestRecipesJsonBuilder.Build();
+            var request = RequestRegisterRecipesJsonBuilder.Build();
             request.Title = new string('B', 101);
 
             var result = validator.Validate(request);

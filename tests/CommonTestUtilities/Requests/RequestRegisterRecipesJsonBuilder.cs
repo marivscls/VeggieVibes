@@ -10,9 +10,9 @@ namespace CommonTestUtilities.Requests
         public static RequestRecipeJson Build()
         {
             var ingredientFaker = new Faker<RequestRecipeIngredientsJson>()
-               .RuleFor(i => i.Name, f => f.Commerce.ProductName())
-               .RuleFor(i => i.Quantity, f => f.Random.Decimal(0.1m, 5.0m))
-               .RuleFor(i => i.UnitOfMeasure, f => f.PickRandom(Enum.GetValues(typeof(UnitOfMeasure)).Cast<UnitOfMeasure>()));
+                .RuleFor(i => i.Name, f => f.Commerce.ProductName())
+                .RuleFor(i => i.Quantity, f => f.Random.Decimal(0.1m, 5.0m))
+                .RuleFor(i => i.UnitOfMeasure, f => f.PickRandom<UnitOfMeasure>());
 
             var recipeFaker = new Faker<RequestRecipeJson>()
                 .RuleFor(r => r.Title, f => f.Lorem.Word())
