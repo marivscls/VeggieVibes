@@ -25,11 +25,28 @@ namespace Validators.Test.Users.Register
         [InlineData("")]
         [InlineData(" ")]
         [InlineData(null)]
-        public void Error_Name_Invalid(string name)
+        public void Error_Email_Empty(string name)
         {
             var validator = new RegisterUserValidator();
             var request = RequestRegisterUserJsonBuilder.Build();
             request.Name = name;
+
+            var result = validator.Validate(request);
+
+            result.IsValid.Should().BeFalse();
+            result.Errors.Should().ContainSingle().And.Contain(e => e.ErrorMessage.Equals(ResourceErrorMessages.NAME_EMPTY));
+        }
+
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        public void Error_Name_Empty(string email)
+        {
+            var validator = new RegisterUserValidator();
+            var request = RequestRegisterUserJsonBuilder.Build();
+            request.Name = email;
 
             var result = validator.Validate(request);
 

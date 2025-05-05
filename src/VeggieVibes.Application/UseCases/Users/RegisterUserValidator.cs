@@ -4,7 +4,7 @@ using VeggieVibes.Exception;
 
 namespace VeggieVibes.Application.UseCases.Users;
 
-public class RegisterUserValidator : AbstractValidator<RequestRegisteredUserJson>
+public class RegisterUserValidator : AbstractValidator<RequestRegisterUserJson>
 {
     public RegisterUserValidator()
     {
@@ -15,6 +15,6 @@ public class RegisterUserValidator : AbstractValidator<RequestRegisteredUserJson
             .EmailAddress()
             .WithMessage(ResourceErrorMessages.USER_EMAIIL_INVALID);
 
-        RuleFor(user => user.Password).SetValidator(new PasswordValidator<RequestRegisteredUserJson>());
+        RuleFor(user => user.Password).SetValidator(new PasswordValidator<RequestRegisterUserJson>());
     }
 }

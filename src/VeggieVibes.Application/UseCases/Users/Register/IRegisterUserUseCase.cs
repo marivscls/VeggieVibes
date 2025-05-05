@@ -5,5 +5,5 @@ namespace VeggieVibes.Application.UseCases.Users.Register;
 
 public interface IRegisterUserUseCase
 {
-    Task<ResponseRegisteredUserJson> Execute(RequestRegisteredUserJson request);
+    Task<ResponseRegisteredUserJson> Execute(RequestRegisterUserJson request);
 }
