@@ -164,30 +164,6 @@ namespace VeggieVibes.Exception {
         }
 
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Email Empty.
-        /// </summary>
-        public static string EMAIL_EMPTY
-        {
-            get
-            {
-                return ResourceManager.GetString("EMAIL_EMPTY", resourceCulture);
-            }
-        }
-
-
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Name is Empty.
-        /// </summary>
-        public static string NAME_EMPTY
-        {
-            get
-            {
-                return ResourceManager.GetString("NAME_EMPTY", resourceCulture);
-            }
-        }
-
-
-        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The preparation time must be greater than zero.
         /// </summary>
         public static string PREPARATION_TIME_POSITIVE {
